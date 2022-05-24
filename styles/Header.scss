@@ -1,0 +1,25 @@
+.header-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .subheader-container {
+        border-bottom: 1px solid #e2e2e2;
+        background-color: white;
+        font-style: italic;
+        font-size: 12px;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+
+    }
+    .title-container {
+        padding-top: 5vh;
+        text-align: center;
+        padding-bottom: 5vh;
+        letter-spacing: 1vw;
+        font-size: 14px;
+    }
+}
