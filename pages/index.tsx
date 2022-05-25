@@ -7,7 +7,6 @@ import Collection from '../components/Collection'
 
 const Home: NextPage = () => {
 
-  // const [data, setData] = useState([])
   const [userAvatar, setUserAvatar] = useState('')
   const [userName, setUserName] = useState('')
   const [portfolioValue, setPortfolioValue] = useState(0)
@@ -15,6 +14,26 @@ const Home: NextPage = () => {
   const [totalSealed, setTotalSealed] = useState('')
   const [totalGraded, setTotalGraded] = useState('')
   const [productList, setProductList] = useState([])
+
+  let offset = 12;
+
+  const handleScroll = (e: any) => {
+    if (window.innerHeight + e.target.documentElement.scrollTop + 1 >= e.target.documentElement.scrollHeight) {
+      offset += 12
+      loadMoreProducts()
+      console.log('handlescroll')
+    }
+    // console.log('top', e.target.documentElement.scrollTop)
+    // console.log('win', window.innerHeight)
+    // console.log('height', e.target.documentElement.scrollHeight)
+  }
+
+  const loadMoreProducts = () => {
+    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=100')
+      .then(response => {
+        setProductList(response.data.products.slice(0, offset))
+    })
+  }
 
   useEffect(() => {
     axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=100')
@@ -27,8 +46,9 @@ const Home: NextPage = () => {
         setTotalCards(response.data.total_cards)
         setTotalSealed(response.data.total_sealed)
         setTotalGraded(response.data.total_graded)
-        setProductList(response.data.products)
-      }) 
+        setProductList(response.data.products.slice(0, offset))
+    })
+    window.addEventListener('scroll', handleScroll) 
   }, [])
 
   return (

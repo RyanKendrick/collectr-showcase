@@ -10,15 +10,16 @@ const Collection: FunctionComponent<CollectionProps> = ({ collectionList }) => {
     <>
     <div className="collection-container">
         {[...collectionList].map(product => (
-            <ProductCard 
-                key={'#'}
-                categoryGroup={product.catalog_group}
-                categoryName={product.catalog_category_name}
-                productImage={product.image_url}
-                productName={product.product_name} 
-         />
+            <>
+              <ProductCard
+                  key={'#'}
+                  categoryGroup={product.catalog_group}
+                  categoryName={product.catalog_category_name}
+                  productImage={product.image_url}
+                  productName={product.product_name}
+              />
+            </>
         ))}
-        
     </div>
     </>
   )

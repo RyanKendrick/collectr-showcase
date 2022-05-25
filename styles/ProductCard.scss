@@ -1,0 +1,23 @@
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 2vh;
+    .product-image {
+        cursor: pointer;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+    .close:hover {
+        cursor: pointer;
+    }
+}
+
+.expand {
+    position: fixed !important;
+    min-height: 75vh !important;
+    max-height: 75vh !important;
+    z-index: 1;
+}

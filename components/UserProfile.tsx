@@ -17,13 +17,13 @@ const UserProfile: FunctionComponent<UserInfoProps> = ({ userAvatar, userName, p
         <div className='user-info-container'>
             <div className="column">
               <div>
-                <Image
-                    src={userAvatar ? userAvatar : '/loading.gif'}
-                    alt={'user avatar'}
-                    width={100}
-                    height={100}
-                    className={'user-avatar'}
-                />
+                  <Image
+                      src={userAvatar ? userAvatar : '/loading.gif'}
+                      alt={'user avatar'}
+                      width={100}
+                      height={100}
+                      className={'user-avatar'}
+                  />
               </div>
               <span>{userName}</span>
               <span>Estimated Portfolio Value (USD)</span>
