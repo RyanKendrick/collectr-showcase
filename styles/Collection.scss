@@ -5,7 +5,13 @@
     border: solid 1px #e2e2e2;
     margin-top: 3vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin-bottom: 10vh;
 }
 
+@media screen and (max-width: 600px) {
+    .collection-container {
+        grid-template-columns: 50% 50%;
+        width: 100%;
+    } 
+}

@@ -1,11 +1,21 @@
+.badge-icon {
+    width: 35rem;
+    text-align: end;
+    z-index: 1;
+    position: relative;
+    margin-bottom: -4rem;
+    margin-right: -4rem;
+}
+
 .user-info-container {
     background-color: white;
-    width: 42%;
+    width: 35rem;
     border-radius: 10px;
     border: solid 1px #e2e2e2;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     .column {
         display: flex;
         flex-direction: column;
@@ -26,4 +36,17 @@
             padding: 2vh;
         }
     }
+}
+
+@media screen and (max-width: 600px) {
+    .badge-icon {
+        width: 100vw;
+        margin-right: 0;
+        .collector-badge {
+            margin-right: -1vw !important;
+        }
+    }
+    .user-info-container {
+        width: 100%;
+    } 
 }

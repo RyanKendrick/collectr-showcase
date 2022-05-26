@@ -14,8 +14,19 @@ const Home: NextPage = () => {
   const [totalSealed, setTotalSealed] = useState('')
   const [totalGraded, setTotalGraded] = useState('')
   const [productList, setProductList] = useState([])
+  const [collectorBadge, setCollectorBadge] = useState('/loading.gif')
 
   let offset = 12;
+
+  const setBadge = () => {
+    if (parseFloat(totalSealed) > parseFloat(totalCards)) {
+      setCollectorBadge('https://www.getcollectr.com/public-assets/images/sealed-collectr-icon.png')
+    } else if (parseFloat(totalGraded) / parseFloat(totalCards) > 0.5) {
+      setCollectorBadge('https://www.getcollectr.com/public-assets/images/graded-collectr-icon.png')
+    } else {
+      setCollectorBadge('https://www.getcollectr.com/public-assets/images/raw-cards-collectr-icon.png')
+    }
+  }
 
   const handleScroll = (e: any) => {
     if (window.innerHeight + e.target.documentElement.scrollTop + 1 >= e.target.documentElement.scrollHeight) {
@@ -23,9 +34,6 @@ const Home: NextPage = () => {
       loadMoreProducts()
       console.log('handlescroll')
     }
-    // console.log('top', e.target.documentElement.scrollTop)
-    // console.log('win', window.innerHeight)
-    // console.log('height', e.target.documentElement.scrollHeight)
   }
 
   const loadMoreProducts = () => {
@@ -47,6 +55,7 @@ const Home: NextPage = () => {
         setTotalSealed(response.data.total_sealed)
         setTotalGraded(response.data.total_graded)
         setProductList(response.data.products.slice(0, offset))
+        setBadge()
     })
     window.addEventListener('scroll', handleScroll) 
   }, [])
@@ -60,7 +69,8 @@ const Home: NextPage = () => {
       portfolioValue={portfolioValue}
       totalCards={totalCards}
       totalSealed={totalSealed}
-      totalGraded={totalGraded} 
+      totalGraded={totalGraded}
+      collectorBadge={collectorBadge} 
     />
     <Collection 
         collectionList={productList}

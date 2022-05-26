@@ -18,19 +18,21 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categ
   return (
     <>
         <div className="product-container">
-              <Image
-                  src={productImage ? productImage : '/loading.gif'}
-                  width={150}
-                  height={150}
-                  alt={'product'}
-                  objectFit={'contain'}
-                  className={'product-image'}
-                  onClick={onClick}
-              />
+              <div>
+                <Image
+                    src={productImage ? productImage : '/loading.gif'}
+                    width={150}
+                    height={150}
+                    alt={'product'}
+                    objectFit={'contain'}
+                    className={'product-image'}
+                    onClick={onClick}
+                />
+              </div>
             <br/>
-            <span>{productName}</span>
-            <span>{categoryName}</span>
-            <span>{categoryGroup}</span>
+              <div>{productName}</div>
+              <div>{categoryName}</div>
+              <div>{categoryGroup}</div>
         </div>
 
     </>

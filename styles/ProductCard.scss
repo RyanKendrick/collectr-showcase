@@ -10,9 +10,6 @@
             opacity: 0.7;
         }
     }
-    .close:hover {
-        cursor: pointer;
-    }
 }
 
 .expand {
@@ -20,4 +17,10 @@
     min-height: 75vh !important;
     max-height: 75vh !important;
     z-index: 1;
+}
+
+@media screen and (max-width: 600px) {
+    .product-container {
+        width: 100%;
+    }
 }

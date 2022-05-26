@@ -19,7 +19,7 @@ const Collection: FunctionComponent<CollectionProps> = ({ collectionList }) => {
                   productName={product.product_name}
               />
             </>
-        ))}
+        ))} 
     </div>
     </>
   )
