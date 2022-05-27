@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import Image from 'next/image'
+import CircularProgress from '@mui/material/CircularProgress'
 
 interface UserInfoProps {
   userAvatar: string;
@@ -8,26 +9,30 @@ interface UserInfoProps {
   totalCards: string;
   totalSealed: string;
   totalGraded: string;
-  collectorBadge: string;
+  collectorBadge: any;
 }
 
 
 const UserProfile: FunctionComponent<UserInfoProps> = ({ userAvatar, userName, portfolioValue, totalCards, totalSealed, totalGraded, collectorBadge }) => {
   return (
     <>
-        <div className='badge-icon'>
+        {!userAvatar && (
+          <CircularProgress />
+        )}
+        {userAvatar && (
+          <>
+            <div className='badge-icon'>
             <Image
-                src={collectorBadge}
+                src={collectorBadge ? collectorBadge : '/loading.gif'}
                 width={100}
                 height={100}
                 alt={'collector badge'}
                 className={'collector-badge'}
               />
-          </div>
-        <div className='user-info-container'>
-          
+                  </div>
+                  <div className='user-info-container'>
             <div className="column">
-              <div>
+                <div>
                 <Image
                     src={userAvatar ? userAvatar : '/loading.gif'}
                     alt={'user avatar'}
@@ -36,25 +41,28 @@ const UserProfile: FunctionComponent<UserInfoProps> = ({ userAvatar, userName, p
                     className={'user-avatar'}
                 />
               </div>
-              <span>{userName}</span>
+              <span>{userName ? userName : <div>Loading...</div>}</span>
               <span>Estimated Portfolio Value (USD)</span>
-              <span>${portfolioValue}</span>
+              <span>{portfolioValue ? `$${portfolioValue}` : <div>Loading...</div>}</span>
             </div>
             <div className="row">
-              <div>
+              <div className='row-container'>
                 <span>Total Cards</span><br/>
                 <span>{totalCards}</span>
               </div>
-              <div>
+              <div className='row-container'>
                 <span>Total Sealed</span><br/>
                 <span>{totalSealed}</span>
               </div>
-              <div>
+              <div className='row-container'>
                 <span>Total Graded</span><br />
                 <span>{totalGraded}</span>
               </div>
             </div>
-        </div>
+                  </div>
+          </>
+        )}
+        
     </>
   )
 }

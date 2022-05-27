@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import ProductCard from './ProductCard'
+import CollectionSkeleton from './CollectionSkeleton'
 
 interface CollectionProps {
     collectionList: any;
@@ -8,7 +9,8 @@ interface CollectionProps {
 const Collection: FunctionComponent<CollectionProps> = ({ collectionList }) => {
   return (
     <>
-    <div className="collection-container">
+      {collectionList.length > 1 && (
+        <div className="collection-container">
         {[...collectionList].map(product => (
             <>
               <ProductCard
@@ -20,7 +22,21 @@ const Collection: FunctionComponent<CollectionProps> = ({ collectionList }) => {
               />
             </>
         ))} 
-    </div>
+      </div>
+      )}
+      {collectionList.length < 1 && (
+        <div className="collection-container">
+          <CollectionSkeleton />
+          <CollectionSkeleton />
+          <CollectionSkeleton />
+          <CollectionSkeleton />
+          <CollectionSkeleton />
+          <CollectionSkeleton />
+          <CollectionSkeleton />
+          <CollectionSkeleton />
+        </div>
+      )}
+      
     </>
   )
 }
