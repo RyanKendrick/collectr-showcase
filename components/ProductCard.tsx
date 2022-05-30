@@ -6,15 +6,10 @@ interface ProductCardProps {
     categoryName: string;
     productImage: string;
     productName: string;
+    openModal: any;
 }
 
-const onClick = (e: any) => {
-  e.target.className === 'product-image' ? 
-    e.target.className = 'expand' 
-    : e.target.className = 'product-image'
-}
-
-const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categoryName, productImage, productName }) => {
+const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categoryName, productImage, productName, openModal }) => {
   return (
     <>
     
@@ -27,7 +22,8 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categ
           alt={'product'}
           objectFit={'contain'}
           className={'product-image'}
-          onClick={onClick}
+          id={productName}
+          onClick={openModal}
       />
     </div>
     <br/>
@@ -35,7 +31,6 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categ
       <div>{categoryName}</div>
       <div>{categoryGroup}</div>
     </div>
-
     </>
   )
 }

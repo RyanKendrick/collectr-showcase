@@ -2,11 +2,13 @@ import React, { FunctionComponent } from 'react'
 import ProductCard from './ProductCard'
 import CollectionSkeleton from './CollectionSkeleton'
 
+
 interface CollectionProps {
     collectionList: any;
+    openModal: any;
 }
 
-const Collection: FunctionComponent<CollectionProps> = ({ collectionList }) => {
+const Collection: FunctionComponent<CollectionProps> = ({ collectionList, openModal }) => {
   return (
     <>
       {collectionList.length > 1 && (
@@ -19,6 +21,7 @@ const Collection: FunctionComponent<CollectionProps> = ({ collectionList }) => {
                   categoryName={product.catalog_category_name}
                   productImage={product.image_url}
                   productName={product.product_name}
+                  openModal={openModal}
               />
             </>
         ))} 
@@ -36,7 +39,7 @@ const Collection: FunctionComponent<CollectionProps> = ({ collectionList }) => {
           <CollectionSkeleton />
         </div>
       )}
-      
+     
     </>
   )
 }

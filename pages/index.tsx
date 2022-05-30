@@ -4,7 +4,8 @@ import axios from 'axios'
 import Header from '../components/Header'
 import UserProfile from '../components/UserProfile'
 import Collection from '../components/Collection'
-import CircularProgress from '@mui/material/CircularProgress'
+import Modal from '../components/Modal'
+// import CircularProgress from '@mui/material/CircularProgress'
 
 
 const Home: NextPage = () => {
@@ -17,7 +18,7 @@ const Home: NextPage = () => {
   const [totalGraded, setTotalGraded] = useState('')
   const [productList, setProductList] = useState([])
   const [collectorBadge, setCollectorBadge] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const [selectedImage, setSelectedImage] = useState('')
 
   let offset = 12;
 
@@ -33,24 +34,40 @@ const Home: NextPage = () => {
   }
 
   const handleScroll = (e: any) => {
-    if (window.innerHeight + e.target.documentElement.scrollTop + 1 >= e.target.documentElement.scrollHeight && productList.length < 100) {
+    if (window.innerHeight + e.target.documentElement.scrollTop + 1 >= e.target.documentElement.scrollHeight) {
       offset += 12
       loadMoreProducts()
     }
   }
 
   const loadMoreProducts = () => {
-    setIsLoading(true)
+
     axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=100')
       .then(response => {
         setProductList(response.data.products.slice(0, offset))
-        setIsLoading(false)
     })
+  }
+
+  interface OpenModalProps {
+    product_name: string;
+    image_url: string;
+  }
+
+  const openModal = (e: any) => {
+    for (let i in productList) {
+      if (productList[i].product_name === e.target.id)
+      setSelectedImage(productList[i].image_url)
+    }
+  }
+
+  const closeModal = () => {
+    setSelectedImage('')
   }
 
   useEffect(() => {
       axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=100')
       .then(response => {
+        console.log(response.data)
         setUserAvatar(response.data.profile_photo)
         setUserName(response.data.user)
         setPortfolioValue(response.data.portfolio_value[0].price)
@@ -60,7 +77,8 @@ const Home: NextPage = () => {
         setProductList(response.data.products.slice(0, offset))
         setBadge()
     })
-    window.addEventListener('scroll', handleScroll) 
+    window.addEventListener('scroll', handleScroll)
+    
   }, [])
 
   return (
@@ -75,12 +93,18 @@ const Home: NextPage = () => {
       totalGraded={totalGraded}
       collectorBadge={collectorBadge} 
     />
+    {selectedImage && (
+      <Modal 
+        selectedImage={selectedImage}
+        closeModal={closeModal} 
+      />
+    )}
+    
     <Collection 
       collectionList={productList}
+      openModal={openModal}
     />
-    {isLoading && (
-      <CircularProgress />
-    )}
+     
     </>
   )
 }
