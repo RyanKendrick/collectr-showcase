@@ -27,9 +27,9 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categ
       />
     </div>
     <br/>
-      <div>{productName}</div>
-      <div>{categoryName}</div>
-      <div>{categoryGroup}</div>
+      <div className='product-title'>{productName}</div>
+      <div className='product-subtitle'>{categoryName}</div>
+      <div className='product-subtitle'>{categoryGroup}</div>
     </div>
     </>
   )

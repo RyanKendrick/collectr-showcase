@@ -23,3 +23,20 @@
         font-size: 14px;
     }
 }
+
+@media screen and (max-width: 600px) {
+
+    .header-container {
+        .subheader-container {
+            text-align: left;
+        }
+        .title-container {
+            padding-left: 2vw;
+            padding-right: 2vw;
+            padding-top: 4vh;
+            padding-bottom: 2vh;
+        }
+    }
+
+
+}

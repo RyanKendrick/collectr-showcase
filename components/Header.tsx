@@ -15,7 +15,7 @@ const Header: FunctionComponent = () => {
         <div className='title-container'>
             <Image
                 src={'https://www.getcollectr.com/marketing-website/images/collectr_logo-removebg---copy-p-500.png'}
-                height={100}
+                height={103}
                 width={500}
                 alt={'COLLECTR'}
             />

@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import Skeleton from '@mui/material/Skeleton'
+import { useMediaQuery } from '@mui/material'
 
-const CollectionSkeleton = () => {
+
+const CollectionSkeleton: FunctionComponent = () => {
+  const screenSmall = useMediaQuery('(min-width: 600px)')
+  const screenLarge = useMediaQuery('(max-width: 600px)')
   return (
     <>
-    <div className="product-container">
-      <Skeleton variant='rectangular' width={150} height={200} animation='wave'/><br/>
-      <Skeleton variant='text' animation='wave' width={190}/>
-      <Skeleton variant='text' animation='wave' width={190}/>
-      <Skeleton variant='text' animation='wave' width={190}/>
-    </div>
+    {screenSmall && (
+      <div className="product-container">
+        <Skeleton id='skeleton' variant='rectangular' width={'15vw'} height={'15vh'} animation='wave'/><br/>
+        <Skeleton id='skeleton' variant='text' animation='wave' width={'15vw'}/>
+        <Skeleton id='skeleton' variant='text' animation='wave' width={'15vw'}/>
+        <Skeleton id='skeleton' variant='text' animation='wave' width={'15vw'}/>
+      </div>
+    )}
+    {screenLarge && (
+      <div className="product-container">
+        <Skeleton id='skeleton' variant='rectangular' width={'20vw'} height={'15vh'} animation='wave'/><br/>
+        <Skeleton id='skeleton' variant='text' animation='wave' width={'20vw'}/>
+        <Skeleton id='skeleton' variant='text' animation='wave' width={'20vw'}/>
+        <Skeleton id='skeleton' variant='text' animation='wave' width={'20vw'}/>
+      </div>
+    )}
+
     </>
   )
 }

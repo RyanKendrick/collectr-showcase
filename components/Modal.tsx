@@ -13,11 +13,20 @@ const Modal: FunctionComponent<ModalProps> = ({ selectedImage, closeModal }) => 
             <div>
                 <Image
                     src={selectedImage ? selectedImage : '/loading.gif'}
-                    width={150}
-                    height={150}
+                    width={250}
+                    height={300}
                     alt={'Expanded view'}
+                    className={'product-image'}
+                    objectFit={'contain'}
                 />
-                <div className='close'>X</div>
+                <div className='close'>
+                    <Image 
+                        src={'/close.svg'}
+                        width={25}
+                        height={25}
+                        alt={'close modal'}
+                    />
+                </div>
             </div>
         </div>
     </>

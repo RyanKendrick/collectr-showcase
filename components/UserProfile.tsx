@@ -14,6 +14,8 @@ interface UserInfoProps {
 
 
 const UserProfile: FunctionComponent<UserInfoProps> = ({ userAvatar, userName, portfolioValue, totalCards, totalSealed, totalGraded, collectorBadge }) => {
+  
+  
   return (
     <>
         {!userAvatar && (
@@ -41,22 +43,22 @@ const UserProfile: FunctionComponent<UserInfoProps> = ({ userAvatar, userName, p
                     className={'user-avatar'}
                 />
               </div>
-              <span>{userName ? userName : <div>Loading...</div>}</span>
+              <span className='user-name'>{userName}</span>
               <span>Estimated Portfolio Value (USD)</span>
-              <span>{portfolioValue ? `$${portfolioValue}` : <div>Loading...</div>}</span>
+              <span className='number'>{`$${portfolioValue}`}</span>
             </div>
             <div className="row">
               <div className='row-container'>
                 <span>Total Cards</span><br/>
-                <span>{totalCards}</span>
+                <span className='number'>{totalCards}</span>
               </div>
               <div className='row-container'>
                 <span>Total Sealed</span><br/>
-                <span>{totalSealed}</span>
+                <span className='number'>{totalSealed}</span>
               </div>
               <div className='row-container'>
                 <span>Total Graded</span><br />
-                <span>{totalGraded}</span>
+                <span className='number'>{totalGraded}</span>
               </div>
             </div>
                   </div>
