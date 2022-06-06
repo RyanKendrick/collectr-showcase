@@ -21,12 +21,12 @@ const Profile: NextPage = () => {
   const [totalSealed, setTotalSealed] = useState('')
   const [totalGraded, setTotalGraded] = useState('')
   const [productList, setProductList] = useState<productList[]>([])
-  // const [limit, setLimit] = useState()
   const [collectorBadge, setCollectorBadge] = useState('')
   const [selectedImage, setSelectedImage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
   let offset = 12;
+  let limit = 12
 
   const setBadge = async () => {
 
@@ -51,10 +51,10 @@ const Profile: NextPage = () => {
   }
 
   const loadMoreProducts = async () => {
-    setIsLoading(true)
-    await axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=${offset}&limit=1000000`)
+    limit += 12
+    await axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=12&limit=${limit}`)
       .then(response => {
-          setProductList(response.data.products.slice(0, offset))
+          setProductList(response.data.products)
       })
   }
 
@@ -69,14 +69,14 @@ const Profile: NextPage = () => {
     setSelectedImage('')
   }
 
-  // useEffect(() => {
-  //   const params = new URLSearchParams(window.location.search) 
-  //   let referenceId = params.get('id')
-  //     axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=0&limit=100`)
 
-  useEffect(() => {
-    
-      axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=10000000`)
+  // 18afaa5e-c0f5-4942-9a5c-5ad8980782ec
+  // (`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=12&limit=${limit}`)
+
+    useEffect(() => {
+      const params = new URLSearchParams(window.location.search) 
+      let referenceId = params.get('id')
+      axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=12&limit=${limit}`)
       .then(response => {
         setUserAvatar(response.data.profile_photo)
         setUserName(response.data.user)
@@ -89,12 +89,14 @@ const Profile: NextPage = () => {
         setTotalCards(response.data.total_cards)
         setTotalSealed(response.data.total_sealed)
         setTotalGraded(response.data.total_graded)
-        setProductList(response.data.products.slice(0, offset))
+        setProductList(response.data.products)
         setBadge()
-    })
-    window.addEventListener('scroll', handleScroll)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+        console.log('useeffect')
+      })
+      
+      window.addEventListener('scroll', handleScroll)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
   return (
     <>
