@@ -5,7 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 interface UserInfoProps {
   userAvatar: string;
   userName: string;
-  portfolioValue: number;
+  portfolioValue: string;
   totalCards: string;
   totalSealed: string;
   totalGraded: string;
@@ -45,7 +45,7 @@ const UserProfile: FunctionComponent<UserInfoProps> = ({ userAvatar, userName, p
               </div>
               <span className='user-name'>{userName}</span>
               <span>Estimated Portfolio Value (USD)</span>
-              <span className='number'>{`$${portfolioValue}`}</span>
+              <span className='number'>{portfolioValue}</span>
             </div>
             <div className="row">
               <div className='row-container'>

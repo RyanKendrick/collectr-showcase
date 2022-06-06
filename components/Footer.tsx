@@ -43,7 +43,8 @@ const Footer: FunctionComponent = () => {
               />
             </div>
             <div className="footer-labels">
-              
+              <div className="footer-title">Collectr</div>
+              <div className="copyright">Copyright © 2022 Collectr. All rights reserved.</div>
             </div>
           </div>
         </div>

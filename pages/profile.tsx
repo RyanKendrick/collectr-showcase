@@ -16,7 +16,7 @@ const Profile: NextPage = () => {
 
   const [userAvatar, setUserAvatar] = useState('')
   const [userName, setUserName] = useState('')
-  const [portfolioValue, setPortfolioValue] = useState(0)
+  const [portfolioValue, setPortfolioValue] = useState('')
   const [totalCards, setTotalCards] = useState('') 
   const [totalSealed, setTotalSealed] = useState('')
   const [totalGraded, setTotalGraded] = useState('')
@@ -27,7 +27,7 @@ const Profile: NextPage = () => {
 
   let offset = 12;
 
-  const setBadge = () => {
+  const setBadge = async () => {
 
     if (parseFloat(totalSealed) > parseFloat(totalCards)) {
       setCollectorBadge('https://www.getcollectr.com/public-assets/images/sealed-collectr-icon.png')
@@ -41,7 +41,7 @@ const Profile: NextPage = () => {
   const handleScroll = (e: any) => {
     if (window.innerHeight + e.target.documentElement.scrollTop + 1 >= e.target.documentElement.scrollHeight) {
       setIsLoading(true)
-      offset += 12
+      offset += 16
       loadMoreProducts()
     }
     setTimeout(() => {
@@ -49,10 +49,9 @@ const Profile: NextPage = () => {
     }, 1200)
   }
 
-
-  const loadMoreProducts = () => {
+  const loadMoreProducts = async () => {
     setIsLoading(true)
-    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=100')
+    await axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=100')
       .then(response => {
           setProductList(response.data.products.slice(0, offset))
       })
@@ -75,7 +74,12 @@ const Profile: NextPage = () => {
         console.log(response.data)
         setUserAvatar(response.data.profile_photo)
         setUserName(response.data.user)
-        setPortfolioValue(parseFloat(response.data.portfolio_value[0].price))
+        let dollars = new Intl.NumberFormat(`en-US`, {
+          currency: `USD`,
+          style: 'currency',
+        }).format(response.data.portfolio_value[0].price);
+        console.log('dollars', dollars)
+        setPortfolioValue(dollars)
         setTotalCards(response.data.total_cards)
         setTotalSealed(response.data.total_sealed)
         setTotalGraded(response.data.total_graded)
@@ -83,6 +87,7 @@ const Profile: NextPage = () => {
         setBadge()
     })
     window.addEventListener('scroll', handleScroll)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

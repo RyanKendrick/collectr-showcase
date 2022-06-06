@@ -9,10 +9,11 @@
         align-items: center;
         justify-content: center;
         text-decoration: underline;
+        font-weight: bold;
     }
     .footer-bottom {
         background-color: #d0e6e6;
-        height: 20em;
+        height: 15em;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -22,5 +23,18 @@
         display: flex;
         flex-direction: row;
 
+    }
+    .footer-labels {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .footer-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .copyright {
+            font-size: 10px;
+        }
     }
 }

@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-top: 2vh;
+    padding: 2vh 2vw;
     .product-image {
         cursor: pointer;
         &:hover {
@@ -11,10 +11,10 @@
         }
     }
     .product-title {
-
+        font-size: 14px;
     }
     .product-subtitle {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 
