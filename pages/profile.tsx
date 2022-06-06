@@ -1,14 +1,13 @@
 import type { NextPage } from 'next'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Header from '../components/Header'
+import Header from '../components/ProfileHeader'
 import UserProfile from '../components/UserProfile'
 import Collection from '../components/Collection'
 import Modal from '../components/Modal'
 import CircularProgress from '@mui/material/CircularProgress'
-import { off } from 'process'
 
-const Home: NextPage = () => {
+const Profile: NextPage = () => {
 
   type productList = {
     product_name: any;
@@ -84,7 +83,7 @@ const Home: NextPage = () => {
         setBadge()
     })
     window.addEventListener('scroll', handleScroll)
-  })
+  }, [])
 
   return (
     <>
@@ -115,4 +114,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Profile
