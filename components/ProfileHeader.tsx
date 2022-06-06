@@ -6,7 +6,7 @@ const ProfileHeader: FunctionComponent = () => {
     <>
     <div className='header-container'>
         <div className='subheader-container'>
-            <a href="#" >
+            <a href="https://www.getcollectr.com" >
                 Want to start tracking your collection?
                 Download &quot;Collectr&quot; TODAY.
                 Available on IOS and Android.
