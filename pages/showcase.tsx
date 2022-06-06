@@ -69,7 +69,9 @@ const Profile: NextPage = () => {
   }
 
   useEffect(() => {
-      axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=100')
+    const params = new URLSearchParams(window.location.search) 
+    let referenceId = params.get('id')
+      axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=0&limit=100`)
       .then(response => {
         console.log(response.data)
         setUserAvatar(response.data.profile_photo)
