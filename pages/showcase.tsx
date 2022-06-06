@@ -29,17 +29,6 @@ const Profile: NextPage = () => {
   let offset = 16;
   let limit = 16;
 
-  const setBadge = async () => {
-
-    if (parseFloat(totalSealed) > parseFloat(totalCards)) {
-      setCollectorBadge('https://www.getcollectr.com/public-assets/images/sealed-collectr-icon.png')
-    } else if (parseFloat(totalGraded) / parseFloat(totalCards) > 0.5) {
-      setCollectorBadge('https://www.getcollectr.com/public-assets/images/graded-collectr-icon.png')
-    } else {
-      setCollectorBadge('https://www.getcollectr.com/public-assets/images/raw-cards-collectr-icon.png')
-    }
-  }
-
   const handleScroll = (e: any) => {
     if (window.innerHeight + e.target.documentElement.scrollTop + 1 >= e.target.documentElement.scrollHeight) {
       setIsLoading(true)
@@ -90,16 +79,13 @@ const Profile: NextPage = () => {
           currency: `USD`,
           style: 'currency',
         }).format(response.data.portfolio_value[0].price);
-        console.log('dollars', dollars)
         setPortfolioValue(dollars)
         setTotalCards(response.data.total_cards)
         setTotalSealed(response.data.total_sealed)
         setTotalGraded(response.data.total_graded)
         setProductList(response.data.products)
-        setBadge()
-        console.log('useeffect')
       })
-      
+      console.log('totalCards', totalCards)
       window.addEventListener('scroll', handleScroll)
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])

@@ -14,7 +14,18 @@ interface UserInfoProps {
 
 
 const UserProfile: FunctionComponent<UserInfoProps> = ({ userAvatar, userName, portfolioValue, totalCards, totalSealed, totalGraded, collectorBadge }) => {
-  
+  const setBadge = async () => {
+
+    if (parseFloat(totalSealed) > parseFloat(totalCards)) {
+      collectorBadge = 'https://www.getcollectr.com/public-assets/images/sealed-collectr-icon.png'
+    } else if (parseFloat(totalGraded) / parseFloat(totalCards) > 0.5) {
+      collectorBadge ='https://www.getcollectr.com/public-assets/images/graded-collectr-icon.png'
+    } else {
+      collectorBadge = 'https://www.getcollectr.com/public-assets/images/raw-cards-collectr-icon.png'
+    }
+    console.log('totalSealed', totalSealed)
+  }
+  setBadge()
   
   return (
     <>
