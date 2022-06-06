@@ -21,6 +21,7 @@ const Profile: NextPage = () => {
   const [totalSealed, setTotalSealed] = useState('')
   const [totalGraded, setTotalGraded] = useState('')
   const [productList, setProductList] = useState<productList[]>([])
+  // const [limit, setLimit] = useState()
   const [collectorBadge, setCollectorBadge] = useState('')
   const [selectedImage, setSelectedImage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -51,7 +52,7 @@ const Profile: NextPage = () => {
 
   const loadMoreProducts = async () => {
     setIsLoading(true)
-    await axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=100')
+    await axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=${offset}&limit=1000000`)
       .then(response => {
           setProductList(response.data.products.slice(0, offset))
       })
@@ -68,12 +69,15 @@ const Profile: NextPage = () => {
     setSelectedImage('')
   }
 
+  // useEffect(() => {
+  //   const params = new URLSearchParams(window.location.search) 
+  //   let referenceId = params.get('id')
+  //     axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=0&limit=100`)
+
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search) 
-    let referenceId = params.get('id')
-      axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=0&limit=100`)
+    
+      axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=10000000`)
       .then(response => {
-        console.log(response.data)
         setUserAvatar(response.data.profile_photo)
         setUserName(response.data.user)
         let dollars = new Intl.NumberFormat(`en-US`, {
