@@ -52,7 +52,7 @@ const Profile: NextPage = () => {
 
   const loadMoreProducts = async () => {
     limit += 12
-    await axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=12&limit=${limit}`)
+    await axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=${limit}`)
       .then(response => {
           setProductList(response.data.products)
       })
@@ -69,9 +69,14 @@ const Profile: NextPage = () => {
     setSelectedImage('')
   }
 
+  // For live
+  // const params = new URLSearchParams(window.location.search) 
+  // let referenceId = params.get('id')
+  // axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=12&limit=${limit}`)
 
-  // 18afaa5e-c0f5-4942-9a5c-5ad8980782ec
-  // (`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=12&limit=${limit}`)
+  // For dev
+  // https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec
+
 
     useEffect(() => {
       const params = new URLSearchParams(window.location.search) 
