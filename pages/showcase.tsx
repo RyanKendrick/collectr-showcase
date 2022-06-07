@@ -24,8 +24,6 @@ const Profile: NextPage = () => {
   const [collectorBadge, setCollectorBadge] = useState('')
   const [selectedImage, setSelectedImage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const params = new URLSearchParams(window.location.search) 
-  let referenceId = params.get('id')
   let offset = 16;
   let limit = 16;
 
@@ -41,6 +39,8 @@ const Profile: NextPage = () => {
   }
 
   const loadMoreProducts = async () => {
+    const params = new URLSearchParams(window.location.search) 
+    let referenceId = params.get('id')
     limit += 12
     await axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=0&limit=${limit}`)
       .then(response => {
