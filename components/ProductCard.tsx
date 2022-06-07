@@ -8,11 +8,16 @@ interface ProductCardProps {
     productName: string;
     gradeId: any;
     openModal: any;
+    productPrice: any;
 }
 
-const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categoryName, productImage, productName, openModal, gradeId }) => {
+const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categoryName, productImage, productName, openModal, gradeId, productPrice }) => {
   
-  console.log('parseInt gradeId', parseInt(gradeId))
+  let marketvalue = new Intl.NumberFormat(`en-US`, {
+    currency: `USD`,
+    style: "currency",
+  }).format(productPrice);
+ 
   
   return (
     <>
@@ -72,6 +77,7 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categ
       <div className='product-title'>{productName}</div>
       <div className='product-subtitle'>{categoryName}</div>
       <div className='product-subtitle'>{categoryGroup}</div>
+      <div className='product-subtitle'><b>{marketvalue}</b></div>
     </div>
     </>
   )

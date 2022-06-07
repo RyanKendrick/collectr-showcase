@@ -23,6 +23,7 @@ const Collection: FunctionComponent<CollectionProps> = ({ collectionList, openMo
                   productName={product.product_name}
                   openModal={openModal}
                   gradeId={product.grade_id}
+                  productPrice={product.market_price}
               />
             </>
         ))} 
