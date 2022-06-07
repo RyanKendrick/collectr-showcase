@@ -1,33 +1,36 @@
-import React, { FunctionComponent } from 'react'
-import ProductCard from './ProductCard'
-import CollectionSkeleton from './CollectionSkeleton'
-
+import React, { FunctionComponent } from "react";
+import ProductCard from "./ProductCard";
+import CollectionSkeleton from "./CollectionSkeleton";
 
 interface CollectionProps {
-    collectionList: any;
-    openModal: any;
+  collectionList: any;
+  openModal: any;
 }
 
-const Collection: FunctionComponent<CollectionProps> = ({ collectionList, openModal }) => {
+const Collection: FunctionComponent<CollectionProps> = ({
+  collectionList,
+  openModal,
+}) => {
   return (
     <>
       {collectionList.length > 1 && (
         <div className="collection-container">
-        {[...collectionList].map(product => (
+          {[...collectionList].map((product) => (
             <>
               <ProductCard
-                  key={'#'}
-                  categoryGroup={product.catalog_group}
-                  categoryName={product.catalog_category_name}
-                  productImage={product.image_url}
-                  productName={product.product_name}
-                  openModal={openModal}
-                  gradeId={product.grade_id}
-                  productPrice={product.market_price}
+                key={"#"}
+                categoryGroup={product.catalog_group}
+                categoryName={product.catalog_category_name}
+                productImage={product.image_url}
+                productName={product.product_name}
+                openModal={openModal}
+                gradeId={product.grade_id}
+                gradeCompany={product.grade_company}
+                productPrice={product.market_price}
               />
             </>
-        ))} 
-      </div>
+          ))}
+        </div>
       )}
       {collectionList.length < 1 && (
         <div className="collection-container">
@@ -41,9 +44,8 @@ const Collection: FunctionComponent<CollectionProps> = ({ collectionList, openMo
           <CollectionSkeleton />
         </div>
       )}
-     
     </>
-  )
-}
+  );
+};
 
-export default Collection
+export default Collection;
