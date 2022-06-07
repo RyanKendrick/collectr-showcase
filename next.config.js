@@ -7,6 +7,16 @@ const nextConfig = {
       'www.svgrepo.com'
     ],
   },
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+    
+      '/showcase': { page: '/showcase' },
+  
+    }
+  },
 }
 
 module.exports = nextConfig

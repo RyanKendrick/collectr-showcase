@@ -69,7 +69,6 @@ const Profile: NextPage = () => {
 
 
     useEffect(() => {
-
       const params = new URLSearchParams(window.location.search) 
       let referenceId = params.get('id')
       axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=0&limit=${limit}`)
@@ -86,7 +85,6 @@ const Profile: NextPage = () => {
         setTotalGraded(response.data.total_graded)
         setProductList(response.data.products)
       })
-      console.log('totalCards', totalCards)
       window.addEventListener('scroll', handleScroll)
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
