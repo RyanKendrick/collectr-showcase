@@ -35,7 +35,7 @@ const Profile: NextPage = () => {
     ) {
       hittingApi = true;
       setIsLoading(true);
-      offset += 16;
+      offset += 100;
       await loadMoreProducts();
       hittingApi = false;
       console.log('handlescroll')
@@ -48,7 +48,7 @@ const Profile: NextPage = () => {
   const loadMoreProducts = async () => {
     const params = new URLSearchParams(window.location.search);
     let referenceId = params.get("id");
-    limit += 12;
+    limit += 100;
     await axios
       .get(
         `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=0&limit=${limit}`
