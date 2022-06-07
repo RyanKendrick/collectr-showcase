@@ -6,6 +6,7 @@ import UserProfile from "../components/UserProfile";
 import Collection from "../components/Collection";
 import Modal from "../components/Modal";
 import CircularProgress from "@mui/material/CircularProgress";
+import ProfileHead from "../components/Head";
 
 const Profile: NextPage = () => {
   type productList = {
@@ -98,6 +99,7 @@ const Profile: NextPage = () => {
 
   return (
     <>
+      <ProfileHead />
       <Header />
       <UserProfile
         userAvatar={userAvatar}
