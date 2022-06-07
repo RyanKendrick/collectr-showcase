@@ -69,8 +69,9 @@ const Profile: NextPage = () => {
 
 
     useEffect(() => {
-      
-      
+
+      const params = new URLSearchParams(window.location.search) 
+      let referenceId = params.get('id')
       axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=0&limit=${limit}`)
       .then(response => {
         setUserAvatar(response.data.profile_photo)
