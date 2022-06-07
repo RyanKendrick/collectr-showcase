@@ -24,8 +24,8 @@ const Profile: NextPage = () => {
   const [collectorBadge, setCollectorBadge] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  let offset = 16;
-  let limit = 16;
+  let offset = 100;
+  let limit = 100;
   let hittingApi = false;
   const handleScroll = async (e: any) => {
     if (
@@ -38,6 +38,7 @@ const Profile: NextPage = () => {
       offset += 16;
       await loadMoreProducts();
       hittingApi = false;
+      console.log('handlescroll')
     }
     setTimeout(() => {
       setIsLoading(false);

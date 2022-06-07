@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import React, { useEffect, useState } from 'react'
 import Header from '../components/homepage/Header'
 import Footer from '../components/homepage/Footer'
+import HtmlHead from '../components/homepage/HtmlHead'
 import HeroBanner from '../components/homepage/HeroBanner'
 import axios from 'axios'
 
@@ -20,6 +21,7 @@ const Home: NextPage = () => {
 
   return (
     <>
+        <HtmlHead />
         <Header />
         <HeroBanner 
           images={bannerImages}  
