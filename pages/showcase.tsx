@@ -84,6 +84,7 @@ const Profile: NextPage = () => {
         setTotalSealed(response.data.total_sealed)
         setTotalGraded(response.data.total_graded)
         setProductList(response.data.products)
+        console.log('products', response.data.products)
       })
       window.addEventListener('scroll', handleScroll)
       // eslint-disable-next-line react-hooks/exhaustive-deps

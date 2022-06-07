@@ -16,6 +16,14 @@
     .product-subtitle {
         font-size: 12px;
     }
+    .grade-id {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        height: 1em;
+    }
 }
 
 .modal {

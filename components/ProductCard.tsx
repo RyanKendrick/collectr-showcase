@@ -6,10 +6,14 @@ interface ProductCardProps {
     categoryName: string;
     productImage: string;
     productName: string;
+    gradeId: any;
     openModal: any;
 }
 
-const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categoryName, productImage, productName, openModal }) => {
+const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categoryName, productImage, productName, openModal, gradeId }) => {
+  
+  console.log('parseInt gradeId', parseInt(gradeId))
+  
   return (
     <>
     
@@ -27,7 +31,44 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({ categoryGroup, categ
       />
     </div>
     <br/>
-      
+      {(gradeId === null) && (
+          <div className='grade-id'></div>
+      )}
+
+      {(parseInt(gradeId) <= 12)  && (
+        <div className='grade-id'>
+          <Image 
+            src={'https://www.getcollectr.com/public-assets/images/psa_icon.jpg'}
+            alt='grade-id'
+            height={17}
+            width={35}
+          />
+          {gradeId}
+        </div>
+      )}
+      {(parseInt(gradeId) >= 13 && parseInt(gradeId) <= 32)  && (
+        <div className='grade-id'>
+          <Image 
+            src={'https://www.getcollectr.com/public-assets/images/bgs_icon.jpg'}
+            alt='grade-id'
+            height={17}
+            width={35}
+          />
+          {gradeId}
+        </div>
+      )}
+      {(parseInt(gradeId) >= 33 && parseInt(gradeId) <= 52)  && (
+        <div className='grade-id'>
+          <Image 
+            src={'https://www.getcollectr.com/public-assets/images/cgc_icon.jpg'}
+            alt='grade-id'
+            height={17}
+            width={35}
+          />
+          {gradeId}
+        </div>
+      )}
+
       <div className='product-title'>{productName}</div>
       <div className='product-subtitle'>{categoryName}</div>
       <div className='product-subtitle'>{categoryGroup}</div>
