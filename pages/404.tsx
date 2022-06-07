@@ -9,8 +9,8 @@ const Error = () => {
         <Image 
             src={'https://www.getcollectr.com/public-assets/images/offer-up-not-found.png'}
             alt={'404 error'}
-            height={450}
-            width={450}
+            height={600}
+            width={600}
         />
     </>
   )
