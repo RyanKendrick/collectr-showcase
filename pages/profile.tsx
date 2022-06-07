@@ -26,19 +26,22 @@ const Profile: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   let offset = 16;
   let limit = 16;
-
-  const handleScroll = (e: any) => {
+  let hittingApi = false;
+  const handleScroll = async (e: any) => {
     if (
       window.innerHeight + e.target.documentElement.scrollTop + 1 >=
-      e.target.documentElement.scrollHeight
+        e.target.documentElement.scrollHeight &&
+      hittingApi == false
     ) {
+      hittingApi = true;
       setIsLoading(true);
       offset += 16;
-      loadMoreProducts();
+      await loadMoreProducts();
+      hittingApi = false;
     }
     setTimeout(() => {
       setIsLoading(false);
-    }, 1200);
+    }, 7500);
   };
 
   const loadMoreProducts = async () => {
