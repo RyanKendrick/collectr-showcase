@@ -8,6 +8,8 @@ import "../styles/CollectionSkeleton.scss";
 import "../styles/home/Header.scss";
 import "../styles/home/Footer.scss";
 import "../styles/home/HeroBanner.scss";
+import '../styles/home/Showcases.scss'
+import '../styles/home/Categories.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;

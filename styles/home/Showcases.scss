@@ -1,0 +1,44 @@
+.showcases-container {
+    display: flex;
+    flex-direction: row;
+    width: 50em;
+    justify-content: space-between;
+    .showcase-card {
+        box-shadow: 4px 4px 10px #c3c3c3;
+        border-radius: 5px;
+        width: 9em;
+        .showcase-cover-imgs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .bottom-cards {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+        .profile-avatar {
+            border-radius: 50px;
+        }
+    }
+    .showcase-avatar-title {
+        display: flex;
+        align-items: center;
+    }
+    .showcase-card-value {
+        text-align: right;
+        font-weight: bold;
+        font-size: 12px;
+    }
+}
+
+.showcases-title {
+    width: 50em;
+    display: flex;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    .showcase-bold-title {
+        font-weight: bold;
+        color: #258f92;
+    }
+}

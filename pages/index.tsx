@@ -4,29 +4,48 @@ import Header from '../components/homepage/Header'
 import Footer from '../components/homepage/Footer'
 import HtmlHead from '../components/homepage/HtmlHead'
 import HeroBanner from '../components/homepage/HeroBanner'
+import Showcases from '../components/homepage/Showcases'
+import Categories from '../components/homepage/Categories'
 import axios from 'axios'
 
 const Home: NextPage = () => {
 
   const [bannerImages, setBannerImages] = useState([])
+  const [showcases, setShowcases] = useState([])
+  const [categories, setCategories] = useState([])
 
 
   useEffect(() => {
     axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/hero-banner')
-      .then((response) => {
-        setBannerImages(response.data.data)
+      .then((banners) => {
+        setBannerImages(banners.data.data)
       })
-      
+    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=6&limit=6')
+      .then((showcases) => {
+        setShowcases(showcases.data.data)
+      })
+    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/categories')
+    .then((categories) => {
+      setCategories(categories.data.data)
+    })
   }, [])
 
   return (
     <>
+      
         <HtmlHead />
         <Header />
         <HeroBanner 
           images={bannerImages}  
         />
+        <Showcases 
+          showcases={showcases}
+        />
+        <Categories 
+          categories={categories}
+        />
         <Footer />
+   
     </>
   )
 }

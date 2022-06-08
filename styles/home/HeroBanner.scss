@@ -1,4 +1,15 @@
-#hero-banner {
-    height: 300px;
-    width: 700px;
+.slideshow {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2em;
+    .cover-text {
+        position: absolute;
+        z-index: 1;
+        color: white;
+        font-weight: bold;
+    }
 }
