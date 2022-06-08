@@ -38,7 +38,6 @@ const Profile: NextPage = () => {
       offset += 100;
       await loadMoreProducts();
       hittingApi = false;
-      console.log('handlescroll')
     }
     setTimeout(() => {
       setIsLoading(false);
