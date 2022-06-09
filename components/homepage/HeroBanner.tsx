@@ -26,24 +26,27 @@ const HeroBanner: FunctionComponent<HeroBannerProps> = ({ images }) => {
             slidesPerView={1}
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
-            autoplay={true}
+            autoplay={{delay: 5000}}
             pagination={{ clickable: true }}
       
           >
             {images.map((img: any) => (
               <>
-                <SwiperSlide>
-                <div className='slideshow'>
-                  <Image
-                    src={img.image_url}
-                    alt={'banner'}
-                    width={1000}
-                    height={400}
-                    className={'current-img'}
-                    objectFit={"contain"}
-                  />
-                </div>
-                </SwiperSlide>
+                
+                  <SwiperSlide>
+
+                      <Image
+                        src={img.image_url}
+                        alt={'banner'}
+                        width={1500}
+                        height={800}
+                        className={'current-img'}
+                        objectFit={"contain"}
+                        
+                      />
+
+                  </SwiperSlide>
+                
               </>
             ))}
           </Swiper>

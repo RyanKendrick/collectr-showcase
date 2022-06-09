@@ -4,7 +4,10 @@
     width: 50em;
     justify-content: space-between;
     margin-bottom: 2em;
-    .category-result {
-        
+}
+
+@media screen and (max-width: 50em) {
+    .categories-container {
+        width: 100%;
     }
 }

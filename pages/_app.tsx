@@ -10,6 +10,7 @@ import "../styles/home/Footer.scss";
 import "../styles/home/HeroBanner.scss";
 import '../styles/home/Showcases.scss'
 import '../styles/home/Categories.scss'
+import '../styles/home/CategoriesPage.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;

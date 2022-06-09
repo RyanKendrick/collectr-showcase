@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface ShowcaseCardProps {
     showcases: any;
@@ -10,16 +11,18 @@ interface ShowcaseCardProps {
     username: any;
     categories: any;
     collectionValue: any;
+    refId: any;
 }
 
-const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ showcases, img1, img2, img3, avatar, username, categories, collectionValue }) => {
-    console.log('showcases', showcases)
+const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, avatar, username, categories, collectionValue, refId }) => {
+    console.log('refId', refId)
     let dollars = new Intl.NumberFormat(`en-US`, {
         currency: `USD`,
         style: "currency",
       }).format(collectionValue);
   return (
     <>
+    <Link href={`/profile?id=${refId}`}>
     <div className="showcase-card">
         <div className="showcase-card-content">
             <div className="showcase-cover-imgs">
@@ -71,6 +74,7 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ showcases, img1, i
             {dollars}
         </div>
     </div>
+    </Link>
     </>
   )
 }

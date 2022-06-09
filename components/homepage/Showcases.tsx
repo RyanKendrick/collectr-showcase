@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import ShowcaseCard from './ShowcaseCard'
+import Link from 'next/link'
 
 interface ShowcasesProps {
     showcases: any;
@@ -25,9 +26,13 @@ const Showcases: FunctionComponent<ShowcasesProps> = ({ showcases }) => {
                     username={item.display_name}
                     categories={item.categories}
                     collectionValue={item.total_value}
+                    refId={item.reference_id}
                 />
             </>
         ))}
+    </div>
+    <div className="showcases-link">
+        <Link href={`/categories`}>Show More &gt;</Link>
     </div>
     </>
   )

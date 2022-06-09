@@ -20,7 +20,7 @@ const Home: NextPage = () => {
       .then((banners) => {
         setBannerImages(banners.data.data)
       })
-    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=6&limit=6')
+    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=0&limit=6')
       .then((showcases) => {
         setShowcases(showcases.data.data)
       })
