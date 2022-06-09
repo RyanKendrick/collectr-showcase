@@ -27,6 +27,7 @@ const Collection: FunctionComponent<CollectionProps> = ({
                 gradeId={product.grade_id}
                 gradeCompany={product.grade_company}
                 productPrice={product.market_price}
+                ebayBuyNowLink={product.ebay_buy_link}
               />
             </>
           ))}

@@ -2,8 +2,6 @@ import React, { FunctionComponent } from "react";
 import Image from "next/image";
 
 interface ProductCardProps {
-
-
   categoryGroup: string;
   categoryName: string;
   productImage: string;
@@ -12,6 +10,7 @@ interface ProductCardProps {
   gradeCompany: any;
   openModal: any;
   productPrice: any;
+  ebayBuyNowLink: any;
 }
 
 const ProductCard: FunctionComponent<ProductCardProps> = ({
@@ -22,16 +21,27 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({
   openModal,
   gradeId,
   gradeCompany,
-  productPrice
+  productPrice,
+  ebayBuyNowLink,
 }) => {
-
   let marketValue = new Intl.NumberFormat(`en-US`, {
     currency: `USD`,
     style: "currency",
   }).format(productPrice);
 
-  return (
+  const buttonStyle = {
+    "background-color": "light-grey",
+    color: "black",
+    "font-size": "12px",
+    padding: "4px 8px",
+    "border-radius": "5px",
+    margin: "10px 5px",
+    cursor: "pointer",
+    display: "inline-block",
+    border: "2px solid #E8E8E8",
+  };
 
+  return (
     <>
       <div className="product-container">
         <div>
@@ -44,9 +54,17 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({
             className={"product-image"}
             id={productName}
             onClick={openModal}
-          />
+          />{" "}
         </div>
-        <br />
+        <div style={{ display: "inline-block" }}>
+          <button
+            style={buttonStyle}
+            onClick={() => window.open(ebayBuyNowLink, "_blank")}
+          >
+            Buy on eBay
+          </button>
+        </div>
+
         {gradeId === null && <div className="grade-id"></div>}
 
         {parseInt(gradeCompany) <= 12 && (
@@ -92,7 +110,9 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({
         <div className="product-title">{productName}</div>
         <div className="product-subtitle">{categoryName}</div>
         <div className="product-subtitle">{categoryGroup}</div>
-        <div className="product-subtitle"><b>{marketValue}</b></div>
+        <div className="product-subtitle">
+          <b>{marketValue}</b>
+        </div>
       </div>
     </>
   );
