@@ -16,7 +16,7 @@ interface HeroBannerProps {
 }
 
 const HeroBanner: FunctionComponent<HeroBannerProps> = ({ images }) => {
- 
+  console.log('images', images)
   return (
     <>
     
@@ -30,54 +30,24 @@ const HeroBanner: FunctionComponent<HeroBannerProps> = ({ images }) => {
             pagination={{ clickable: true }}
       
           >
-      
-            <SwiperSlide>
-
-            <div className='slideshow'>
-              <Image
-                src={'https://www.tributemedia.com/hubfs/Images/Blog%20Images/shutterstock_252081805.jpg'}
-                alt={'banner'}
-                width={800}
-                height={300}
-                className={'current-img'}
-              />
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div className='slideshow'>
-              <Image
-                src={'https://www.tributemedia.com/hubfs/Images/Blog%20Images/shutterstock_252081805.jpg'}
-                alt={'banner'}
-                width={800}
-                height={300}
-                className={'current-img'}
-              />
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div className='slideshow'>
-              <Image
-                src={'https://www.tributemedia.com/hubfs/Images/Blog%20Images/shutterstock_252081805.jpg'}
-                alt={'banner'}
-                width={800}
-                height={300}
-                className={'current-img'}
-              />
-            </div>
-            </SwiperSlide>
+            {images.map((img: any) => (
+              <>
+                <SwiperSlide>
+                <div className='slideshow'>
+                  <Image
+                    src={img.image_url}
+                    alt={'banner'}
+                    width={1000}
+                    height={400}
+                    className={'current-img'}
+                    objectFit={"contain"}
+                  />
+                </div>
+                </SwiperSlide>
+              </>
+            ))}
           </Swiper>
     </div>
-    {/* <div className="slideshow">
-      <div className="cover-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. </div>
-      <Image 
-        src={'https://www.tributemedia.com/hubfs/Images/Blog%20Images/shutterstock_252081805.jpg'}
-        alt={'banner'}
-        width={800}
-        height={300}
-        className={'current-img'}
-      />
-    </div> */}
-        
     </>
   )
 }
