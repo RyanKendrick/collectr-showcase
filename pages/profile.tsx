@@ -24,8 +24,8 @@ const Profile: NextPage = () => {
   const [collectorBadge, setCollectorBadge] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  let offset = 100;
-  let limit = 100;
+  let offset = 0;
+  let limit = 50;
   let hittingApi = false;
   const handleScroll = async (e: any) => {
     if (
@@ -35,7 +35,7 @@ const Profile: NextPage = () => {
     ) {
       hittingApi = true;
       setIsLoading(true);
-      offset += 100;
+      offset += 50;
       await loadMoreProducts();
       hittingApi = false;
     }
@@ -47,10 +47,9 @@ const Profile: NextPage = () => {
   const loadMoreProducts = async () => {
     const params = new URLSearchParams(window.location.search);
     let referenceId = params.get("id");
-    limit += 100;
     await axios
       .get(
-        `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=0&limit=${limit}`
+        `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=${offset}&limit=${limit}`
       )
       .then((response) => {
         setProductList(response.data.products);
@@ -71,7 +70,7 @@ const Profile: NextPage = () => {
   // For live
   // const params = new URLSearchParams(window.location.search)
   // let referenceId = params.get('id')
-  // axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=0&limit=${limit}`)
+  // axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=${offset}&limit=${limit}`)
 
   // For dev
   // https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=${limit}
@@ -81,7 +80,7 @@ const Profile: NextPage = () => {
     let referenceId = params.get("id");
     axios
       .get(
-        `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=0&limit=${limit}`
+        `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=${offset}&limit=${limit}`
       )
       .then((response) => {
         setUserAvatar(response.data.profile_photo);
