@@ -27,37 +27,44 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ showcases, img1, i
                     <Image
                         src={img1}
                         alt={'collection-sample'}
-                        height={25}
-                        width={15}
+                        height={60}
+                        width={60}
+                        objectFit={"contain"}
                     />
                 </div>
                 <div className='bottom-cards'>
-                    <Image
-                        src={img2}
-                        alt={'collection-sample'}
-                        height={25}
-                        width={15}
-                    />
-                    <Image
-                        src={img3}
-                        alt={'collection-sample'}
-                        height={25}
-                        width={15}
-                    />
+                    <div className='card-1'>
+                        <Image
+                            src={img2}
+                            alt={'collection-sample'}
+                            height={60}
+                            width={60}
+                            objectFit={"contain"}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            src={img3}
+                            alt={'collection-sample'}
+                            height={60}
+                            width={60}
+                            objectFit={"contain"}
+                        />
+                    </div>
                 </div>
             </div>
             <div className="showcase-card-labels">
                 <div className='showcase-avatar-title'>
-                <Image 
-                    src={avatar}
-                    alt={'profile-avatar'}
-                    height={25}
-                    width={25}
-                    className={'profile-avatar'}
-                />
-                {username} 
+                    <Image 
+                        src={avatar}
+                        alt={'profile-avatar'}
+                        height={25}
+                        width={25}
+                        className={'profile-avatar'}
+                    />
+                    <div className="profile-username">{username}</div> 
                 </div>
-                {categories.join(' · ')}
+                <div className="collection-categories">{categories.join(' · ')}</div>
             </div>
         </div>
         <div className="showcase-card-value">
