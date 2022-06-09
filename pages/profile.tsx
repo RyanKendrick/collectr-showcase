@@ -25,7 +25,7 @@ const Profile: NextPage = () => {
   const [selectedImage, setSelectedImage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   let offset = 0;
-  let limit = 50;
+  let limit = 52;
   let hittingApi = false;
   const handleScroll = async (e: any) => {
     if (
@@ -35,9 +35,10 @@ const Profile: NextPage = () => {
     ) {
       hittingApi = true;
       setIsLoading(true);
-      offset += 50;
+      offset += 52;
       await loadMoreProducts();
       hittingApi = false;
+      // window.scrollTo(0, 1500);
     }
     setTimeout(() => {
       setIsLoading(false);
@@ -52,7 +53,7 @@ const Profile: NextPage = () => {
         `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=${offset}&limit=${limit}`
       )
       .then((response) => {
-        setProductList(response.data.products);
+        setProductList((productList) => ([...productList, ...response.data.products]))
       });
   };
 
@@ -73,7 +74,7 @@ const Profile: NextPage = () => {
   // axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=${offset}&limit=${limit}`)
 
   // For dev
-  // https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=0&limit=${limit}
+  // https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/18afaa5e-c0f5-4942-9a5c-5ad8980782ec?offset=${offset}&limit=${limit}
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
