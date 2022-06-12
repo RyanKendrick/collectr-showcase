@@ -7,23 +7,43 @@ import Footer from '../components/homepage/Footer'
 
 const CategoriesPage: NextPage = () => {
 
-    const [results, setResults] = useState([])
-    let count = 20
+    type results = {
+        product_name: any;
+        image_url: any;
+        categories: any;
+      };
 
-    useEffect(() => {
-        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=0&limit=${count}`)
+    const [results, setResults] = useState<results[]>([])
+    let resultsOffset = 0
+    let resultsLimit = 20
+
+    const getData = () => {
+        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=${resultsOffset}&limit=${resultsLimit}`)
         .then((showcases) => {
             setResults(showcases.data.data)
-        })
+        }) 
+    }
+
+    useEffect(() => {
+       getData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
     const loadMore = () => {
         console.log('clicked')
-        count += 20
-        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=0&limit=${count}`)
-        .then((showcases) => {
-            setResults(showcases.data.data)
-        })
+        resultsOffset += 20
+        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=${resultsOffset}&limit=${resultsLimit}`)
+        .then((response) => {
+          
+            setResults((results: any) => ([...results, ...response.data.data]))
+            
+        }) 
+        
+    }
+
+    const filterResults = () => {
+       
+
     }
 
 
@@ -31,7 +51,7 @@ const CategoriesPage: NextPage = () => {
     <>
         <Header />
         <div className="category-select">
-            <select name="categories">
+            <select onChange={filterResults} name="categories">
                 <option value="default">Categories</option>
                 <option value="pokemon">Pokemon</option>
                 <option value="magic">Magic MTG</option>

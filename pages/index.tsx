@@ -5,7 +5,7 @@ import Footer from '../components/homepage/Footer'
 import HtmlHead from '../components/homepage/HtmlHead'
 import HeroBanner from '../components/homepage/HeroBanner'
 import Showcases from '../components/homepage/Showcases'
-import Categories from '../components/homepage/Categories'
+import Categories from '../components/collections-page/Collections'
 import axios from 'axios'
 
 const Home: NextPage = () => {

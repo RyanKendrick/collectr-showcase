@@ -33,7 +33,7 @@ const Showcases: FunctionComponent<ShowcasesProps> = ({ showcases }) => {
         ))}
     </div>
     <div className="showcases-link">
-        <Link href={`/categories`}>Show More &gt;</Link>
+        <Link href={`/collections`}>Show More &gt;</Link>
     </div>
     </>
   )

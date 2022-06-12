@@ -16,6 +16,7 @@ const nextConfig = {
     return {
     
       '/profile': { page: '/profile' },
+      '/collections': {page: '/collections'},
   
     }
   },
