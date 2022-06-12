@@ -16,6 +16,7 @@ const Showcases: FunctionComponent<ShowcasesProps> = ({ showcases }) => {
     <div className="showcases-container">
         
         {showcases.map((item: any) => (
+            
             <>
                 <ShowcaseCard
                     showcases={item}

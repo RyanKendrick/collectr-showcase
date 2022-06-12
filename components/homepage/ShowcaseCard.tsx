@@ -20,6 +20,7 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
         currency: `USD`,
         style: "currency",
       }).format(collectionValue);
+      const defaultImg = 'https://www.svgrepo.com/show/20/user.svg'
   return (
     <>
     <Link href={`/profile?id=${refId}`}>
@@ -59,7 +60,7 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
             <div className="showcase-card-labels">
                 <div className='showcase-avatar-title'>
                     <Image 
-                        src={avatar}
+                        src={avatar ? avatar : defaultImg}
                         alt={'profile-avatar'}
                         height={25}
                         width={25}
