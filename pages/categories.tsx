@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ShowcaseCard from '../components/homepage/ShowcaseCard'
 import axios from 'axios'
 import Header from '../components/homepage/Header'
@@ -8,12 +8,23 @@ import Footer from '../components/homepage/Footer'
 const CategoriesPage: NextPage = () => {
 
     const [results, setResults] = useState([])
+    let count = 20
 
-    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=0&limit=20')
-      .then((showcases) => {
-        setResults(showcases.data.data)
-      })
-
+    useEffect(() => {
+        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=0&limit=${count}`)
+        .then((showcases) => {
+            setResults(showcases.data.data)
+        })
+    }, [])
+    
+    const loadMore = () => {
+        console.log('clicked')
+        count += 20
+        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=0&limit=${count}`)
+        .then((showcases) => {
+            setResults(showcases.data.data)
+        })
+    }
 
 
   return (
@@ -47,7 +58,7 @@ const CategoriesPage: NextPage = () => {
             ))}
         </div>
         
-        <button className='load-more-btn'>Load More</button>
+        <button onClick={loadMore} className='load-more-btn'>Load More</button>
         
         <Footer />
     </>

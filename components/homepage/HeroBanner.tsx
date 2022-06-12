@@ -39,7 +39,7 @@ const HeroBanner: FunctionComponent<HeroBannerProps> = ({ images }) => {
                         src={img.image_url}
                         alt={'banner'}
                         width={1500}
-                        height={800}
+                        height={650}
                         className={'current-img'}
                         objectFit={"contain"}
                         

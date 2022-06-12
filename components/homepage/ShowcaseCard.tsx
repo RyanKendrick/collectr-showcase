@@ -15,7 +15,6 @@ interface ShowcaseCardProps {
 }
 
 const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, avatar, username, categories, collectionValue, refId }) => {
-    console.log('refId', refId)
     let dollars = new Intl.NumberFormat(`en-US`, {
         currency: `USD`,
         style: "currency",
@@ -68,7 +67,7 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
                     />
                     <div className="profile-username">{username}</div> 
                 </div>
-                <div className="collection-categories">{categories.join(' · ')}</div>
+                <div className="collection-categories">{categories.slice(0, 4).join(' · ')}</div>
             </div>
         </div>
         <div className="showcase-card-value">
