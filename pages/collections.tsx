@@ -11,17 +11,27 @@ const CategoriesPage: NextPage = () => {
         product_name: any;
         image_url: any;
         categories: any;
-      };
+    };
+    type categoriesList = {
+        any: any;
+    }
 
     const [results, setResults] = useState<results[]>([])
+    const [category, setCategory] = useState('default')
+    const [categoriesList, setCategoriesList] = useState<categoriesList[]>([])
     let resultsOffset = 0
     let resultsLimit = 20
+
 
     const getData = () => {
         axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=${resultsOffset}&limit=${resultsLimit}`)
         .then((showcases) => {
+            console.log(showcases.data)
             setResults(showcases.data.data)
-        }) 
+            for (let i in showcases.data.data) {
+                setCategoriesList((categoriesList: any) => ([...categoriesList, ...showcases.data.data[i].categories]))
+            }
+        })
     }
 
     useEffect(() => {
@@ -34,18 +44,15 @@ const CategoriesPage: NextPage = () => {
         resultsOffset += 20
         axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=${resultsOffset}&limit=${resultsLimit}`)
         .then((response) => {
-          
             setResults((results: any) => ([...results, ...response.data.data]))
-            
-        }) 
-        
+        })
     }
 
-    const filterResults = () => {
-       
-
+    const filterResults = (e: any) => {
+        setCategory(e.target.value)
     }
 
+    // 'Pokemon', 'Digimon Card Game', 'MetaZoo', 'Magic: The Gathering', 'YuGiOh', Funko, Weiss Schwarz, Dragon Ball Super CCG, UniVersus, Flesh and Blood, Final Fantasy TCG
 
   return (
     <>
@@ -53,29 +60,54 @@ const CategoriesPage: NextPage = () => {
         <div className="category-select">
             <select onChange={filterResults} name="categories">
                 <option value="default">Categories</option>
-                <option value="pokemon">Pokemon</option>
-                <option value="magic">Magic MTG</option>
-                <option value="yugioh">Yu-Gi-Oh!</option>
-                <option value="metazoo">MetaZoo</option>
-                <option value="funko">Funko</option>
+                {categoriesList.map((i: any) => (
+                    <option key={i} value={i}>{i}</option>
+                ))}
+                {/* <option value="default">Categories</option>
+                <option value="Pokemon">Pokemon</option>
+                <option value="Digimon Card Game">Magic MTG</option>
+                <option value="MetaZoo">Yu-Gi-Oh!</option>
+                <option value="Magic: The Gathering">MetaZoo</option>
+                <option value="YuGiOh">Funko</option>
+                <option value="Funko">Funko</option> */}
             </select>
         </div>
         <div className="showcases-container">
-            {results.map((item: any) => (
-                <>
-                    <ShowcaseCard
-                        showcases={item}
-                        img1={item.image_1_url}
-                        img2={item.image_2_url}
-                        img3={item.image_3_url}
-                        avatar={item.profile_photo_url}
-                        username={item.display_name}
-                        categories={item.categories}
-                        collectionValue={item.total_value}
-                        refId={item.reference_id}
-                    />
-                </>
-            ))}
+            {category === 'default' && (
+                results.map((item: any) => (
+                    <>
+                        <ShowcaseCard
+                            showcases={item}
+                            img1={item.image_1_url}
+                            img2={item.image_2_url}
+                            img3={item.image_3_url}
+                            avatar={item.profile_photo_url}
+                            username={item.display_name}
+                            categories={item.categories}
+                            collectionValue={item.total_value}
+                            refId={item.reference_id}
+                        />
+                    </>
+                ))
+            )}
+            {category !== 'default' && (
+                results.filter(i => {return i.categories.includes(category)}).map((item: any) => (
+                    <>
+                        <ShowcaseCard
+                            showcases={item}
+                            img1={item.image_1_url}
+                            img2={item.image_2_url}
+                            img3={item.image_3_url}
+                            avatar={item.profile_photo_url}
+                            username={item.display_name}
+                            categories={item.categories}
+                            collectionValue={item.total_value}
+                            refId={item.reference_id}
+                        />
+                    </>
+                ))
+            )}
+            
         </div>
         
         <button onClick={loadMore} className='load-more-btn'>Load More</button>
