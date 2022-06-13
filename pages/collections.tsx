@@ -21,6 +21,7 @@ const CategoriesPage: NextPage = () => {
     const [categoriesList, setCategoriesList] = useState<categoriesList[]>([])
     let resultsOffset = 0
     let resultsLimit = 20
+ 
 
 
     const getData = () => {
@@ -52,7 +53,6 @@ const CategoriesPage: NextPage = () => {
         setCategory(e.target.value)
     }
 
-    // 'Pokemon', 'Digimon Card Game', 'MetaZoo', 'Magic: The Gathering', 'YuGiOh', Funko, Weiss Schwarz, Dragon Ball Super CCG, UniVersus, Flesh and Blood, Final Fantasy TCG
 
   return (
     <>
@@ -60,7 +60,7 @@ const CategoriesPage: NextPage = () => {
         <div className="category-select">
             <select onChange={filterResults} name="categories">
                 <option value="default">Categories</option>
-                {categoriesList.map((i: any) => (
+                {Array.from(new Set(categoriesList)).map((i: any) => (
                     <option key={i} value={i}>{i}</option>
                 ))}
                 {/* <option value="default">Categories</option>
