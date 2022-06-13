@@ -4,9 +4,15 @@ import ShowcaseCard from '../components/homepage/ShowcaseCard'
 import axios from 'axios'
 import Header from '../components/homepage/Header'
 import Footer from '../components/homepage/Footer'
+import { useRouter } from 'next/router'
 
 const CategoriesPage: NextPage = () => {
 
+    const router = useRouter()
+
+    const { query: {categoryId}} = router
+
+    const props = { categoryId }
 
     type results = {
         product_name: any;
@@ -17,15 +23,17 @@ const CategoriesPage: NextPage = () => {
         any: any;
     }
 
+    console.log('props.categoryId', props.categoryId)
+
     const [results, setResults] = useState<results[]>([])
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState(props.categoryId === undefined ? '' : props.categoryId)
     const [categoriesList, setCategoriesList] = useState<categoriesList[]>([])
     let resultsOffset = 0
     let resultsLimit = 24
 
 
     const getData = () => {
-        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=${resultsOffset}&limit=${resultsLimit}`)
+        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${resultsOffset}&limit=${resultsLimit}`)
         .then((showcases) => {
             setResults(showcases.data.data)
             setCategories()

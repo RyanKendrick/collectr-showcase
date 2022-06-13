@@ -10,11 +10,11 @@ const Categories: FunctionComponent<CategoriesProps> = ({ categories }) => {
 
 
     const sendProps = (e: any) => {
-      let categoryName = e.target.id
+      let categoryId = e.target.id
       Router.push({
         pathname: '/collections',
         query: {
-          categoryName
+          categoryId
         }
       })
     }
@@ -35,7 +35,7 @@ const Categories: FunctionComponent<CategoriesProps> = ({ categories }) => {
                   alt={'category cover'}
                   height={100}
                   width={170}
-                  id={result.category_name}
+                  id={result.category_id}
                 />
   
             </div>
