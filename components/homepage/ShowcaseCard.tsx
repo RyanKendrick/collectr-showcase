@@ -19,7 +19,13 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
         currency: `USD`,
         style: "currency",
       }).format(collectionValue);
-      const defaultImg = 'https://www.svgrepo.com/show/20/user.svg'
+
+
+    const screenWidth = screen.width * 0.0625
+    const mobileWidth = 35
+    console.log('screenwidth', screenWidth)
+
+    const defaultImg = 'https://www.svgrepo.com/show/20/user.svg'
   return (
     <>
     <Link href={`/profile?id=${refId}`}>
@@ -27,31 +33,36 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
         <div className="showcase-card-content">
             <div className="showcase-cover-imgs">
                 <div>
-                    <Image
-                        src={img1}
-                        alt={'collection-sample'}
-                        height={60}
-                        width={60}
-                        objectFit={"contain"}
-                    />
+        
+                       <Image
+                            src={img1}
+                            alt={'collection-sample'}
+                            height={70}
+                            width={70}
+                            objectFit={"contain"}
+                            className={'card-image'}
+                        />
+    
                 </div>
                 <div className='bottom-cards'>
                     <div className='card-1'>
                         <Image
                             src={img2}
                             alt={'collection-sample'}
-                            height={60}
-                            width={60}
+                            height={70}
+                            width={70}
                             objectFit={"contain"}
+                            id={'card-image'}
                         />
                     </div>
                     <div>
                         <Image
                             src={img3}
                             alt={'collection-sample'}
-                            height={60}
-                            width={60}
+                            height={70}
+                            width={70}
                             objectFit={"contain"}
+                            className={'card-image'}
                         />
                     </div>
                 </div>

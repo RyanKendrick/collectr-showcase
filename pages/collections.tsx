@@ -20,7 +20,7 @@ const CategoriesPage: NextPage = () => {
     const [category, setCategory] = useState('default')
     const [categoriesList, setCategoriesList] = useState<categoriesList[]>([])
     let resultsOffset = 0
-    let resultsLimit = 20
+    let resultsLimit = 24
  
 
 
@@ -42,7 +42,7 @@ const CategoriesPage: NextPage = () => {
     
     const loadMore = () => {
         console.log('clicked')
-        resultsOffset += 20
+        resultsOffset + 24
         axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=${resultsOffset}&limit=${resultsLimit}`)
         .then((response) => {
             setResults((results: any) => ([...results, ...response.data.data]))
