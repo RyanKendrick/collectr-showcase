@@ -7,6 +7,7 @@ import Footer from '../components/homepage/Footer'
 
 const CategoriesPage: NextPage = () => {
 
+
     type results = {
         product_name: any;
         image_url: any;
@@ -17,23 +18,37 @@ const CategoriesPage: NextPage = () => {
     }
 
     const [results, setResults] = useState<results[]>([])
-    const [category, setCategory] = useState('default')
+    const [category, setCategory] = useState('')
     const [categoriesList, setCategoriesList] = useState<categoriesList[]>([])
     let resultsOffset = 0
     let resultsLimit = 24
- 
 
 
     const getData = () => {
         axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=${resultsOffset}&limit=${resultsLimit}`)
         .then((showcases) => {
-            console.log(showcases.data)
             setResults(showcases.data.data)
-            for (let i in showcases.data.data) {
-                setCategoriesList((categoriesList: any) => ([...categoriesList, ...showcases.data.data[i].categories]))
-            }
+            setCategories()
         })
     }
+
+    const getCategoryData = async (e: any) => {
+        console.log('etv', e.target.value)
+        setCategory(e.target.value)
+        await axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${e.target.value}&offset=${resultsOffset}&limit=${resultsLimit}`)
+        .then((response) => {
+            console.log('response.data', response.data.data)
+            setResults(response.data.data)
+        })
+    }
+
+    const setCategories = () => {
+        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/categories`)
+        .then((response) => {
+            setCategoriesList(response.data.data)
+        })
+    }
+
 
     useEffect(() => {
        getData()
@@ -41,32 +56,26 @@ const CategoriesPage: NextPage = () => {
     }, [])
     
     const loadMore = () => {
-        console.log('clicked')
-        resultsOffset + 24
-        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=${resultsOffset}&limit=${resultsLimit}`)
+        resultsOffset = resultsOffset += 24
+        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${resultsOffset}&limit=${resultsLimit}`)
         .then((response) => {
             setResults((results: any) => ([...results, ...response.data.data]))
         })
     }
 
-    const filterResults = (e: any) => {
-        setCategory(e.target.value)
-    }
-
-
   return (
     <>
         <Header />
         <div className="category-select">
-            <select onChange={filterResults} name="categories">
-                <option value="default">Categories</option>
+            <select onChange={getCategoryData} name="categories">
+                <option className='options-placeholder' value="default">Categories</option>
                 {Array.from(new Set(categoriesList)).map((i: any) => (
-                    <option key={i} value={i}>{i}</option>
+                    <option key={i.category_id} value={i.category_id}>{i.category_name}</option>
                 ))}
             </select>
         </div>
         <div className="showcases-page-container">
-            {category === 'default' && (
+            {category === '' && (
                 results.map((item: any) => (
                     <>
                         <ShowcaseCard
@@ -83,8 +92,8 @@ const CategoriesPage: NextPage = () => {
                     </>
                 ))
             )}
-            {category !== 'default' && (
-                results.filter(i => {return i.categories.includes(category)}).map((item: any) => (
+            {category !== '' && (
+                results.map((item: any) => (
                     <>
                         <ShowcaseCard
                             showcases={item}

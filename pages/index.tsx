@@ -5,7 +5,7 @@ import Footer from '../components/homepage/Footer'
 import HtmlHead from '../components/homepage/HtmlHead'
 import HeroBanner from '../components/homepage/HeroBanner'
 import Showcases from '../components/homepage/Showcases'
-import Categories from '../components/homepage/Collections'
+import Categories from '../components/homepage/Categories'
 import axios from 'axios'
 
 const Home: NextPage = () => {
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
       .then((banners) => {
         setBannerImages(banners.data.data)
       })
-    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=0&limit=5')
+    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=0&limit=4')
       .then((showcases) => {
         setShowcases(showcases.data.data)
       })
@@ -60,3 +60,4 @@ export default Home
 // https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/categories
 // List of categories to display as filters. FYI the category_id is what will be used when running the first route above passing in categori_id in filter query param to filter out i.e.
 // ?filters=3&offset=0&limit=50
+// https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filter=2

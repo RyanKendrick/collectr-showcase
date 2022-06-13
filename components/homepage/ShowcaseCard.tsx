@@ -23,7 +23,6 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
 
     const screenWidth = screen.width * 0.0625
     const mobileWidth = 35
-    console.log('screenwidth', screenWidth)
     // document.addEventListener('')
 
     const defaultImg = 'https://www.svgrepo.com/show/20/user.svg'

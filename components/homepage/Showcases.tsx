@@ -6,7 +6,6 @@ interface ShowcasesProps {
     showcases: any;
 }
 const Showcases: FunctionComponent<ShowcasesProps> = ({ showcases }) => {
-    console.log('showcases.tsx data', showcases)
      
   return (
     <>
