@@ -8,6 +8,13 @@
 
 @media screen and (max-width: 50em) {
     .categories-container {
-        width: 100%;
+        width: 100vw;
+        overflow-x: scroll;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        .category-result {
+            width: 10em;
+            padding: .5em;
+        }
     }
 }

@@ -88,14 +88,22 @@ a {
     font-size: 12px;
 }
 
-//  @media screen and (max-width: 50em) {
-//      .showcases-container {
-        
-//      }
-//      .showcases-title {
-//          width: 100%;
-//      }
-//      .showcases-link {
-//          width: 100%;
-//      }
-//  }
+@media screen and (max-width: 50em) {
+    .showcases-container {
+        width: 100vw;
+        overflow-x: scroll;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        .showcase-card {
+            margin: 1em 0.5em;
+        }
+    }
+    .showcases-link {
+        width: 100%;
+        padding-right: .5em;
+    }
+    .showcases-title {
+        width: 100%;
+        padding-left: .5em;
+    }
+}
