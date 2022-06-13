@@ -63,16 +63,9 @@ const CategoriesPage: NextPage = () => {
                 {Array.from(new Set(categoriesList)).map((i: any) => (
                     <option key={i} value={i}>{i}</option>
                 ))}
-                {/* <option value="default">Categories</option>
-                <option value="Pokemon">Pokemon</option>
-                <option value="Digimon Card Game">Magic MTG</option>
-                <option value="MetaZoo">Yu-Gi-Oh!</option>
-                <option value="Magic: The Gathering">MetaZoo</option>
-                <option value="YuGiOh">Funko</option>
-                <option value="Funko">Funko</option> */}
             </select>
         </div>
-        <div className="showcases-container">
+        <div className="showcases-page-container">
             {category === 'default' && (
                 results.map((item: any) => (
                     <>

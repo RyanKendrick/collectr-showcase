@@ -11,6 +11,7 @@ import "../styles/home/HeroBanner.scss";
 import '../styles/home/Showcases.scss'
 import '../styles/home/Categories.scss'
 import '../styles/home/CategoriesPage.scss'
+import '../styles/showcases-page/Showcases-Page.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
