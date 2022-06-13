@@ -1,5 +1,5 @@
 .category-select {
-    width: 20em;
+    width: 100vw;
     padding-left: 5em;
     select {
         background: transparent;
@@ -99,7 +99,7 @@
         width: 57rem;
     }
     .category-select {
-        width: 20rem;
+        width: 57rem;
     }
 }
 
@@ -108,7 +108,7 @@
         width: 45rem;
     }
     .category-select {
-        width: 20rem;
+        width: 45rem;
     }
 }
 @media screen and (max-width: 45rem) {
@@ -116,7 +116,7 @@
         width: 35rem;
     }
     .category-select {
-        width: 20rem;
+        width: 35rem;
     }
 }
 @media screen and (max-width: 35rem) {
@@ -124,7 +124,7 @@
         width: 30rem;
     }
     .category-select {
-        width: 20rem;
+        width: 30rem;
     }
 }
 @media screen and (max-width: 35rem) {
