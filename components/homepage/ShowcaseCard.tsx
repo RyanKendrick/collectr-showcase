@@ -24,6 +24,7 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
     const screenWidth = screen.width * 0.0625
     const mobileWidth = 35
     console.log('screenwidth', screenWidth)
+    // document.addEventListener('')
 
     const defaultImg = 'https://www.svgrepo.com/show/20/user.svg'
   return (
@@ -33,37 +34,73 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
         <div className="showcase-card-content">
             <div className="showcase-cover-imgs">
                 <div>
-        
-                       <Image
+                    {screenWidth > mobileWidth && (
+                        <Image
                             src={img1}
                             alt={'collection-sample'}
-                            height={70}
-                            width={70}
+                            height={80}
+                            width={80}
                             objectFit={"contain"}
                             className={'card-image'}
                         />
+                    )}
+                    {screenWidth < mobileWidth && (
+                        <Image
+                            src={img1}
+                            alt={'collection-sample'}
+                            height={100}
+                            width={100}
+                            objectFit={"contain"}
+                            className={'card-image'}
+                        />
+                    )}
     
                 </div>
                 <div className='bottom-cards'>
                     <div className='card-1'>
+                    {screenWidth > mobileWidth && (
                         <Image
-                            src={img2}
-                            alt={'collection-sample'}
-                            height={70}
-                            width={70}
-                            objectFit={"contain"}
-                            id={'card-image'}
+                        src={img2}
+                        alt={'collection-sample'}
+                        height={80}
+                        width={80}
+                        objectFit={"contain"}
+                        id={'card-image'}
                         />
+                    )}
+                    {screenWidth < mobileWidth && (
+                        <Image
+                        src={img2}
+                        alt={'collection-sample'}
+                        height={100}
+                        width={100}
+                        objectFit={"contain"}
+                        id={'card-image'}
+                        />
+                    )}   
                     </div>
                     <div>
+                    {screenWidth > mobileWidth && (
                         <Image
-                            src={img3}
-                            alt={'collection-sample'}
-                            height={70}
-                            width={70}
-                            objectFit={"contain"}
-                            className={'card-image'}
-                        />
+                        src={img3}
+                        alt={'collection-sample'}
+                        height={80}
+                        width={80}
+                        objectFit={"contain"}
+                        className={'card-image'}
+                    />
+                    )}
+                    {screenWidth < mobileWidth && (
+                        <Image
+                        src={img3}
+                        alt={'collection-sample'}
+                        height={100}
+                        width={100}
+                        objectFit={"contain"}
+                        className={'card-image'}
+                    />
+                    )}
+                        
                     </div>
                 </div>
             </div>

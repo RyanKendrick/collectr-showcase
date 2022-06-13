@@ -1,6 +1,6 @@
 .category-select {
-    width: 100%;
-    margin-left: 5em;
+    width: 20em;
+    padding-left: 5em;
     select {
         background: transparent;
         border: none;
@@ -36,7 +36,7 @@
         box-shadow: 4px 4px 10px #c3c3c3;
         border-radius: 5px;
         width: 12em;
-        height: 15em;
+        height: 16em;
         background-color: white;
         display: flex;
         flex-direction: column;
@@ -76,6 +76,7 @@
             .profile-username {
                 margin-left: 0.5em;
                 font-weight: 400;
+                font-size: 18px;
             }
         }
         .collection-categories {
@@ -95,24 +96,24 @@
 
 @media screen and (max-width: 70rem) {
     .showcases-page-container {
-        width: 60rem;
+        width: 57rem;
     }
     .category-select {
-        width: 60rem;
+        width: 20rem;
     }
 }
 
 @media screen and (max-width: 57rem) {
     .showcases-page-container {
-        width: 50rem;
+        width: 45rem;
     }
     .category-select {
-        width: 50rem;
+        width: 20rem;
     }
 }
 @media screen and (max-width: 45rem) {
     .showcases-page-container {
-        width: 40rem;
+        width: 35rem;
     }
     .category-select {
         width: 20rem;
@@ -132,6 +133,12 @@
         .showcase-card {
             width: 15rem;
             height: 20rem;
+            .showcase-cover-imgs {
+                height: 12em;
+            }
+            .collection-categories {
+                font-size: 14px;
+            }
         }
     }
     #card-image {
