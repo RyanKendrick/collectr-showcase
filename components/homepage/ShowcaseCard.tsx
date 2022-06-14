@@ -34,12 +34,20 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
                 <div className="showcase-card-content">
                     <div className="showcase-cover-imgs">
                         <div>
-                            {screenWidth > mobileWidth && (
                                 <Image
                                     src={img1}
                                     alt={'collection-sample'}
-                                    height={90}
-                                    width={90}
+                                    height={100}
+                                    width={100}
+                                    objectFit={"contain"}
+                                    className={'card-image'}
+                                />
+                            {/* {screenWidth > mobileWidth && (
+                                <Image
+                                    src={img1}
+                                    alt={'collection-sample'}
+                                    height={100}
+                                    width={100}
                                     objectFit={"contain"}
                                     className={'card-image'}
                                 />
@@ -53,17 +61,25 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
                                     objectFit={"contain"}
                                     className={'card-image'}
                                 />
-                            )}
+                            )} */}
             
                         </div>
                         <div className='bottom-cards'>
                             <div className='card-1'>
-                            {screenWidth > mobileWidth && (
                                 <Image
                                 src={img2}
                                 alt={'collection-sample'}
-                                height={90}
-                                width={90}
+                                height={100}
+                                width={100}
+                                objectFit={"contain"}
+                                id={'card-image'}
+                                />
+                            {/* {screenWidth > mobileWidth && (
+                                <Image
+                                src={img2}
+                                alt={'collection-sample'}
+                                height={100}
+                                width={100}
                                 objectFit={"contain"}
                                 id={'card-image'}
                                 />
@@ -77,15 +93,23 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
                                 objectFit={"contain"}
                                 id={'card-image'}
                                 />
-                            )}
+                            )} */}
                             </div>
                             <div>
-                            {screenWidth > mobileWidth && (
+                            <Image
+                                src={img3}
+                                alt={'collection-sample'}
+                                height={100}
+                                width={100}
+                                objectFit={"contain"}
+                                className={'card-image'}
+                            />
+                            {/* {screenWidth > mobileWidth && (
                                 <Image
                                 src={img3}
                                 alt={'collection-sample'}
-                                height={90}
-                                width={90}
+                                height={100}
+                                width={100}
                                 objectFit={"contain"}
                                 className={'card-image'}
                             />
@@ -99,7 +123,7 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
                                 objectFit={"contain"}
                                 className={'card-image'}
                             />
-                            )}
+                            )} */}
             
                             </div>
                         </div>
