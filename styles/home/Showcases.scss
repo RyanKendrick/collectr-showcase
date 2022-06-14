@@ -1,9 +1,11 @@
 .showcases-container {
     display: flex;
     flex-direction: row;
-    width: 71em;
+    width: 70em;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
     .showcase-card {
         box-shadow: 4px 4px 10px #c3c3c3;
         border-radius: 5px;
@@ -66,14 +68,14 @@
     
     .showcase-card-value {
         text-align: right;
-        font-weight: 500;
-        font-size: 12px;
+        font-weight: 700;
+        font-size: 14px;
         padding: .3em;
     }
 }
 
 .showcases-title {
-    width: 68em;
+    width: 70em;
     display: flex;
     padding-bottom: 1em;
     .showcase-bold-title {
@@ -93,6 +95,7 @@
 
 a {
     font-size: 12px;
+    margin: -1em;
 }
 
 @media screen and (max-width: 50em) {
@@ -101,13 +104,16 @@ a {
         overflow-x: scroll;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        padding-bottom: 1em;
+        margin-bottom: 0;
         .showcase-card {
-            margin: 1em 0.5em;
+            margin: 1em 2em;
         }
     }
     .showcases-link {
         width: 100%;
-        padding-right: .5em;
+        padding-right: 1.5em;
+        padding-bottom: 1em;
     }
     .showcases-title {
         width: 100%;

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 html,
 body {
@@ -23,6 +23,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Lato', sans-serif;
 }
 
 

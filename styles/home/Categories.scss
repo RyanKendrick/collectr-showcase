@@ -1,12 +1,13 @@
 .categories-container {
     display: flex;
     flex-direction: row;
-    width: 69em;
+    width: 72em;
     justify-content: space-between;
     margin-bottom: 2em;
     margin-top: 1em;
     .category-result {
         width: 20em;
+    margin: 0 1em;
         &:hover {
             cursor: pointer;
         }
@@ -19,9 +20,9 @@
         overflow-x: scroll;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding-bottom: 1em;
         .category-result {
-            width: 10em;
-            padding: .5em;
+            width: 13em;
         }
     }
 }
