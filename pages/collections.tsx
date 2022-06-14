@@ -28,12 +28,13 @@ const CategoriesPage: NextPage = () => {
     const [results, setResults] = useState<results[]>([])
     const [category, setCategory] = useState(props.categoryId === undefined ? '' : props.categoryId)
     const [categoriesList, setCategoriesList] = useState<categoriesList[]>([])
-    let resultsOffset = 0
+    const [rOffset, setROffset] = useState(0)
+    // let resultsOffset = 0
     let resultsLimit = 24
 
 
     const getData = () => {
-        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${resultsOffset}&limit=${resultsLimit}`)
+        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${rOffset}&limit=${resultsLimit}`)
         .then((showcases) => {
             setResults(showcases.data.data)
             setCategories()
@@ -43,7 +44,7 @@ const CategoriesPage: NextPage = () => {
     const getCategoryData = async (e: any) => {
         console.log('etv', e.target.value)
         setCategory(e.target.value)
-        await axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${e.target.value}&offset=${resultsOffset}&limit=${resultsLimit}`)
+        await axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${e.target.value}&offset=${rOffset}&limit=${resultsLimit}`)
         .then((response) => {
             console.log('response.data', response.data.data)
             setResults(response.data.data)
@@ -64,11 +65,12 @@ const CategoriesPage: NextPage = () => {
     }, [])
     
     const loadMore = () => {
-        resultsOffset = resultsOffset += 24
-        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${resultsOffset}&limit=${resultsLimit}`)
+        setROffset(rOffset + 24)
+        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${rOffset}&limit=${resultsLimit}`)
         .then((response) => {
             setResults((results: any) => ([...results, ...response.data.data]))
         })
+        console.log('results offset', rOffset)
     }
 
   return (

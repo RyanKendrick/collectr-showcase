@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -32,21 +33,18 @@ const HeroBanner: FunctionComponent<HeroBannerProps> = ({ images }) => {
           >
             {images.map((img: any) => (
               <>
-                
-                  <SwiperSlide>
-
-                      <Image
-                        src={img.image_url}
-                        alt={'banner'}
-                        width={1500}
-                        height={650}
-                        className={'current-img'}
-                        objectFit={"contain"}
-                        
-                      />
-
-                  </SwiperSlide>
-                
+                <SwiperSlide>
+                  <Link href={`/profile?id=${img.link_url}`}>
+                    <Image
+                      src={img.image_url}
+                      alt={'banner'}
+                      width={1500}
+                      height={650}
+                      className={'current-img'}
+                      objectFit={"contain"}
+                    />
+                  </Link>
+                </SwiperSlide>
               </>
             ))}
           </Swiper>

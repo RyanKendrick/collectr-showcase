@@ -4,6 +4,9 @@
     background-color: white;
     .home-logo {
         margin: 2vh 2vw;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 
