@@ -38,6 +38,7 @@ const CategoriesPage: NextPage = () => {
         .then((showcases) => {
             setResults(showcases.data.data)
             setCategories()
+            setROffset(rOffset + 24)
         })
     }
 

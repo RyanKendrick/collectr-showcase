@@ -1,19 +1,19 @@
 .showcases-container {
     display: flex;
     flex-direction: row;
-    width: 50em;
+    width: 71em;
     justify-content: space-between;
     flex-wrap: wrap;
     .showcase-card {
         box-shadow: 4px 4px 10px #c3c3c3;
         border-radius: 5px;
-        width: 16em;
+        width: 21em;
         background-color: white;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin: 1em 0;
-        height: 22em;
+        margin: 1em 1em;
+        height: 24em;
         &:hover {
             cursor: pointer;
         }
@@ -49,29 +49,32 @@
             .profile-username {
                 margin-left: 0.5em;
                 font-weight: 400;
-                font-size: 18px;
+                font-size: 17px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
         }
         .collection-categories {
             font-size: 12px;
             line-height: 1.2em;
-            padding-left: .7em;
-            padding-right: .7em;
+            padding-left: 0.7em;
+            padding-right: 0.7em;
+            font-weight: 300;
         }
     }
     
     .showcase-card-value {
         text-align: right;
-        font-weight: bold;
+        font-weight: 500;
         font-size: 12px;
         padding: .3em;
     }
 }
 
 .showcases-title {
-    width: 50em;
+    width: 68em;
     display: flex;
-    padding-top: 1em;
     padding-bottom: 1em;
     .showcase-bold-title {
         font-weight: bold;
@@ -80,7 +83,7 @@
 }
 
 .showcases-link {
-    width: 50em;
+    width: 68em;
     display: flex;
     padding-top: 1em;
     font-weight: bold;

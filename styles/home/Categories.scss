@@ -1,10 +1,12 @@
 .categories-container {
     display: flex;
     flex-direction: row;
-    width: 50em;
+    width: 69em;
     justify-content: space-between;
     margin-bottom: 2em;
+    margin-top: 1em;
     .category-result {
+        width: 20em;
         &:hover {
             cursor: pointer;
         }

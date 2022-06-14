@@ -33,8 +33,8 @@ const Categories: FunctionComponent<CategoriesProps> = ({ categories }) => {
                 <Image 
                   src={result.image_url}
                   alt={'category cover'}
-                  height={100}
-                  width={170}
+                  height={200}
+                  width={340}
                   id={result.category_id}
                 />
   

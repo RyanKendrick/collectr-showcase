@@ -44,13 +44,13 @@
     .showcase-card {
         box-shadow: 4px 4px 10px #c3c3c3;
         border-radius: 5px;
-        width: 17em;
+        width: 21em;
         background-color: white;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         margin: 1em 1em;
-        height: 23em;
+        height: 24em;
         &:hover {
             cursor: pointer;
         }
@@ -86,27 +86,26 @@
             .profile-username {
                 margin-left: 0.5em;
                 font-weight: 400;
-                font-size: 18px;
+                font-size: 17px;
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
             }
         }
         .collection-categories {
-            font-size: 13px;
+            font-size: 12px;
             line-height: 1.2em;
-            padding-top: 0.3em;
             padding-left: 0.7em;
-            max-height: 3.6em;
             padding-right: 0.7em;
+            font-weight: 300;
         }
     }
     
     .showcase-card-value {
         text-align: right;
-        font-weight: bold;
+        font-weight: 500;
         font-size: 12px;
-        padding: .3em;
+        padding: 0.3em;
     }
 }
 
