@@ -14,6 +14,19 @@
     }
 }
 
+@media screen and (max-width: 70em) {
+    .categories-container {
+        width: 100vw;
+        overflow-x: scroll;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding-bottom: 1em;
+        .category-result {
+            width: 13em;
+        }
+    }
+}
+
 @media screen and (max-width: 50em) {
     .categories-container {
         width: 100vw;

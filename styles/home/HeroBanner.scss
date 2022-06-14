@@ -20,6 +20,23 @@
     height: 33em;
 }
 
+@media screen and (max-width: 70em) {
+    .slideshow {
+        margin: 0;
+        width: 100%;
+        height: 15em;
+    }
+    .swiper {
+        height: 15em;
+    }
+    .swiper-slide {
+        display: flex;
+    }
+    .current-image {
+        height: 20em;
+    }
+}
+
 @media screen and (max-width: 50em) {
     .slideshow {
         margin: 0;
