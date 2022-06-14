@@ -4,6 +4,11 @@
     width: 50em;
     justify-content: space-between;
     margin-bottom: 2em;
+    .category-result {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 @media screen and (max-width: 50em) {
