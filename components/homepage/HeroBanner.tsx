@@ -17,7 +17,7 @@ interface HeroBannerProps {
 }
 
 const HeroBanner: FunctionComponent<HeroBannerProps> = ({ images }) => {
-  console.log("images", images);
+  // console.log("images", images);
   return (
     <>
       <div className="slideshow">
