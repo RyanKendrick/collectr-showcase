@@ -70,8 +70,6 @@ const CategoriesPage: NextPage = () => {
     }
 
     const openDropdown = () => {
-        
-        
         if (isOpen === false) {
             const open: any = document.getElementById('dropdown-content')
             setIsOpen(true)
@@ -81,9 +79,6 @@ const CategoriesPage: NextPage = () => {
             close.className = 'display-none'
             setIsOpen(false)
         }
-        
-
-    
     }
 
     useEffect(() => {
@@ -95,7 +90,9 @@ const CategoriesPage: NextPage = () => {
         setROffset(rOffset + 20)
         axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${rOffset}&limit=${resultsLimit}`)
         .then((response) => {
-            setResults((results: any) => ([...results, ...response.data.data]))
+            setResults((results) => ([...results, ...response.data.data]))
+        }).catch(err => {
+            console.log('error', err)
         })
         console.log('results offset', rOffset)
     }

@@ -7,7 +7,6 @@ import Collection from "../components/Collection";
 import Modal from "../components/Modal";
 import CircularProgress from "@mui/material/CircularProgress";
 import ProfileHead from "../components/Head";
-import Router from "next/router";
 
 const Profile: NextPage = () => {
   type productList = {
