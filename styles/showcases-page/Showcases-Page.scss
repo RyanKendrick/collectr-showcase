@@ -1,5 +1,5 @@
 .category-select {
-    width: 94rem;
+    width: 105rem;
     padding-left: 3em;
     select {
         background: transparent;
@@ -35,7 +35,7 @@
 }
 
 .showcases-page-container {
-    width: 90rem;
+    width: 100rem;
     display: grid;
     display: flex;
     flex-direction: row;
@@ -109,6 +109,15 @@
     }
 }
 
+@media screen and (max-width: 100rem) {
+    .showcases-page-container {
+        width: 80rem;
+    }
+    .category-select {
+        width: 83rem;
+    }
+}
+
 @media screen and (max-width: 90rem) {
     .showcases-page-container {
         width: 74rem;
@@ -118,7 +127,7 @@
     }
 }
 
-@media screen and (max-width: 70rem) {
+@media screen and (max-width: 75rem) {
     .showcases-page-container {
         width: 57rem;
     }
@@ -127,7 +136,7 @@
     }
 }
 
-@media screen and (max-width: 57rem) {
+@media screen and (max-width: 60rem) {
     .showcases-page-container {
         width: 45rem;
     }
