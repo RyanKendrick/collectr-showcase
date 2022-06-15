@@ -33,7 +33,7 @@ const CategoriesPage: NextPage = () => {
   const [categoriesList, setCategoriesList] = useState<categoriesList[]>([]);
   const [rOffset, setROffset] = useState(0);
   // let resultsOffset = 0
-  let resultsLimit = 25;
+  let resultsLimit = 28;
 
   const getData = () => {
     axios
@@ -43,7 +43,7 @@ const CategoriesPage: NextPage = () => {
       .then((showcases) => {
         setResults(showcases.data.data);
         setCategories();
-        setROffset(rOffset + 25);
+        setROffset(rOffset + 28);
       });
   };
 
