@@ -202,7 +202,6 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    border-radius: 15%;
     width: 15em;
     border: 1px solid black;
     .dropdown-option {
@@ -245,6 +244,8 @@
     z-index: 1;
     background-color: white;
     height: auto;
+    box-shadow: 4px 4px 10px #c3c3c3;
+    border-radius: 15px;
     button {
         font-family: 'Lato', sans-serif;
         border: none;
@@ -252,6 +253,7 @@
         text-align: left;
         background-color: white;
         height: 3em;
+        border-radius: 5px;
         &:hover {
             background-color: #258f92;
             cursor: pointer;
