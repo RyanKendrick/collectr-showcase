@@ -26,7 +26,8 @@
     .social-icons {
         display: flex;
         flex-direction: row;
-
+        width: 10vw;
+        justify-content: space-between;
     }
     .footer-labels {
         display: flex;

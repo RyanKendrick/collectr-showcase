@@ -21,11 +21,7 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
       }).format(collectionValue);
 
 
-    const screenWidth = screen.width * 0.0625
-    const mobileWidth = 35
-    // document.addEventListener('')
-
-    const defaultImg = 'https://www.svgrepo.com/show/20/user.svg'
+    const defaultImg = 'https://www.getcollectr.com/public-assets/images/anon-collectr.png?imwidth=128'
   return (
     <>
     <Link href={`/profile?id=${refId}`} passHref>

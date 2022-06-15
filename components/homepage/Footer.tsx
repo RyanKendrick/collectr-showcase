@@ -15,33 +15,21 @@ const Footer: FunctionComponent = () => {
           <div className="social-icons">
             <Image
               alt="social-icon"
-              src={"https://www.svgrepo.com/show/271189/instagram.svg"}
-              width={15}
-              height={15}
+              src={"/facebook.png"}
+              width={30}
+              height={30}
             />
             <Image
               alt="social-icon"
-              src={"https://www.svgrepo.com/show/271189/instagram.svg"}
-              width={15}
-              height={15}
+              src={"/instagram.png"}
+              width={30}
+              height={30}
             />
             <Image
               alt="social-icon"
-              src={"https://www.svgrepo.com/show/271189/instagram.svg"}
-              width={15}
-              height={15}
-            />
-            <Image
-              alt="social-icon"
-              src={"https://www.svgrepo.com/show/271189/instagram.svg"}
-              width={15}
-              height={15}
-            />
-            <Image
-              alt="social-icon"
-              src={"https://www.svgrepo.com/show/271189/instagram.svg"}
-              width={15}
-              height={15}
+              src={"/twitter.png"}
+              width={30}
+              height={30}
             />
           </div>
           <div className="footer-labels">
