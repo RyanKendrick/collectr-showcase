@@ -25,14 +25,6 @@ const CategoriesPage: NextPage = () => {
 
     console.log('props.categoryId', props.categoryId)
 
-<<<<<<< HEAD
-    const [results, setResults] = useState<results[]>([])
-    const [category, setCategory] = useState(props.categoryId === undefined ? '' : props.categoryId)
-    const [categoriesList, setCategoriesList] = useState<categoriesList[]>([])
-    const [rOffset, setROffset] = useState(0)
-    const [resultsLimit, setResultsLimit] = useState(20)
-
-=======
   const [results, setResults] = useState<results[]>([]);
   const [category, setCategory] = useState(
     props.categoryId === undefined ? "" : props.categoryId
@@ -53,16 +45,6 @@ const CategoriesPage: NextPage = () => {
         setROffset(rOffset + 28);
       });
   };
->>>>>>> 9db0f8489b3ef5b48d66b9bb6b7d0b69b866e30e
-
-
-    const getData = () => {
-        axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${rOffset}&limit=${resultsLimit}`)
-        .then((showcases) => {
-            setResults(showcases.data.data)
-            setCategories()
-        })
-    }
 
     const getCategoryData = async (e: any) => {
         console.log('etv', e.target.value)
