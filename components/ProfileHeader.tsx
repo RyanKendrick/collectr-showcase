@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const ProfileHeader: FunctionComponent<HeaderProps> = ({ userName = "" }) => {
+const ProfileHeader: FunctionComponent = () => {
   return (
     <>
       <div className="header-container">
