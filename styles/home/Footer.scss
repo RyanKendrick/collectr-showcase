@@ -1,8 +1,9 @@
 .footer {
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
     background-color: white;
     width: 100%;
     .discord-link {
+        font-family: 'Lato', sans-serif;
         height: 5em;
         background-color: #258f92;
         color: white;
@@ -16,6 +17,7 @@
     
     }
     .footer-bottom {
+        font-family: 'Lato', sans-serif;
         background-color: #d0e6e6;
         height: 15em;
         display: flex;
