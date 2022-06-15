@@ -24,6 +24,7 @@ const Profile: NextPage = () => {
   const [collectorBadge, setCollectorBadge] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [verified, setVerified] = useState(false)
   let offset = 0;
   let limit = 52;
   let hittingApi = false;
@@ -95,6 +96,7 @@ const Profile: NextPage = () => {
         setTotalSealed(response.data.total_sealed);
         setTotalGraded(response.data.total_graded);
         setProductList(response.data.products);
+        setVerified(response.data.verified)
       }).catch(err => {
         window.location.href = '/404';
       })
@@ -114,6 +116,7 @@ const Profile: NextPage = () => {
         totalSealed={totalSealed}
         totalGraded={totalGraded}
         collectorBadge={collectorBadge}
+        verified={verified}
       />
       <Collection collectionList={productList} openModal={openModal} />
       {isLoading && <CircularProgress />}

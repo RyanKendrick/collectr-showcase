@@ -10,6 +10,7 @@ interface UserInfoProps {
   totalSealed: string;
   totalGraded: string;
   collectorBadge: any;
+  verified: boolean;
 }
 
 const UserProfile: FunctionComponent<UserInfoProps> = ({
@@ -20,6 +21,7 @@ const UserProfile: FunctionComponent<UserInfoProps> = ({
   totalSealed,
   totalGraded,
   collectorBadge,
+  verified,
 }) => {
   const setBadge = async () => {
     if (parseFloat(totalSealed) > parseFloat(totalCards)) {
@@ -60,7 +62,19 @@ const UserProfile: FunctionComponent<UserInfoProps> = ({
                   className={"user-avatar"}
                 />
               </div>
-              <span className="user-name">{userName}</span>
+              <span className="user-name">
+                <div className="profile-name">{userName}</div>
+                {verified === true && (
+                  <div className="verified-img">
+                  <Image
+                    src={'/correct.png'}
+                    alt={'user verified'}
+                    height={15}
+                    width={15}
+                  />
+                </div>
+                )}
+                </span>
               <span>Estimated Portfolio Value (USD)</span>
               <span className="number">{portfolioValue}</span>
             </div>
