@@ -13,30 +13,30 @@ const Footer: FunctionComponent = () => {
         </div>
         <div className="footer-bottom">
           <div className="social-icons">
-            <div className="icon-bg">
+            <a href="https://www.facebook.com/getcollectr" target="_blank" rel="noreferrer" className="icon-bg">
               <Image
                 alt="social-icon"
                 src={"/facebook.png"}
                 width={30}
                 height={30}
               />
-            </div>
-            <div className="icon-bg">
+            </a>
+            <a href="https://www.instagram.com/getcollectr/" target="_blank" rel="noreferrer" className="icon-bg">
               <Image
                 alt="social-icon"
                 src={"/instagram.png"}
                 width={30}
                 height={30}
               />
-            </div>
-            <div className="icon-bg">
+            </a>
+            <a href="https://twitter.com/getcollectrapp" target="_blank" rel="noreferrer" className="icon-bg">
               <Image
                 alt="social-icon"
                 src={"/twitter.png"}
                 width={30}
                 height={30}
               />
-            </div>
+            </a>
           </div>
           <div className="footer-labels">
             <div className="footer-title">contact@getcollectr.com</div>
