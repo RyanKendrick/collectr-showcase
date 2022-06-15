@@ -6,6 +6,7 @@ import Header from '../components/homepage/Header'
 import Footer from '../components/homepage/Footer'
 import { useRouter } from 'next/router'
 import HtmlHead from "../components/homepage/HtmlHead";
+import Head from '../components/Head'
 
 const CategoriesPage: NextPage = () => {
     const router = useRouter()
@@ -79,7 +80,8 @@ const CategoriesPage: NextPage = () => {
 
   return (
     <>
-        <HtmlHead />        
+        <HtmlHead /> 
+        <Head />       
         <Header />
         <div className='category-select'>
             <div className="dropdown">
