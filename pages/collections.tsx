@@ -51,9 +51,10 @@ const CategoriesPage: NextPage = () => {
   };
 
   const getCategoryData = async (e: any) => {
+    setROffset(0)
     const close: any = document.getElementById("dropdown-content");
     close.className = "display-none";
-    setIsOpen(false);
+    setIsOpen(false)
     document.getElementById("dropdown-content");
     // console.log("etv", e.target.value);
     setCategory(e.target.value);
