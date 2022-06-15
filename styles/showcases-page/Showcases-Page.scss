@@ -35,9 +35,10 @@
 }
 
 .showcases-page-container {
+    width: 90vw;
+    display: grid;
     display: flex;
     flex-direction: row;
-    width: 90vw;
     justify-content: space-around;
     flex-wrap: wrap;
     // margin: 0 20em;
