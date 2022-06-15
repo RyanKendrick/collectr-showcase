@@ -65,14 +65,12 @@ const UserProfile: FunctionComponent<UserInfoProps> = ({
               <span className="user-name">
                 <div className="profile-name">{userName}</div>
                 {verified === true && (
-                  <div className="verified-img">
                   <Image
                     src={'/correct.png'}
                     alt={'user verified'}
                     height={15}
                     width={15}
                   />
-                </div>
                 )}
                 </span>
               <span>Estimated Portfolio Value (USD)</span>
