@@ -1,4 +1,5 @@
 .categories-container {
+    font-family: 'Lato';
     display: flex;
     flex-direction: row;
     width: 72em;
@@ -16,6 +17,7 @@
 
 @media screen and (max-width: 70em) {
     .categories-container {
+        font-family: 'Lato';
         width: 100vw;
         overflow-x: scroll;
         display: grid;
@@ -29,6 +31,7 @@
 
 @media screen and (max-width: 50em) {
     .categories-container {
+        font-family: 'Lato';
         width: 100vw;
         overflow-x: scroll;
         display: grid;

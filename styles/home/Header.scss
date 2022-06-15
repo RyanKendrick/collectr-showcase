@@ -1,4 +1,5 @@
 .home-header {
+    font-family: 'Lato';
     display: flex;
     width: 100%;
     background-color: white;
@@ -12,6 +13,7 @@
 
 @media screen and (max-width: 550px) {
     .home-header {
+        font-family: 'Lato';
         align-items: center;
         justify-content: center;
     }
