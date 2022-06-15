@@ -24,7 +24,7 @@ const Profile: NextPage = () => {
   const [collectorBadge, setCollectorBadge] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [verified, setVerified] = useState(false)
+  const [verified, setVerified] = useState(false);
   let offset = 0;
   let limit = 52;
   let hittingApi = false;
@@ -54,7 +54,10 @@ const Profile: NextPage = () => {
         `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=${offset}&limit=${limit}`
       )
       .then((response) => {
-        setProductList((productList) => ([...productList, ...response.data.products]))
+        setProductList((productList) => [
+          ...productList,
+          ...response.data.products,
+        ]);
       });
   };
 
@@ -96,17 +99,18 @@ const Profile: NextPage = () => {
         setTotalSealed(response.data.total_sealed);
         setTotalGraded(response.data.total_graded);
         setProductList(response.data.products);
-        setVerified(response.data.verified)
-      }).catch(err => {
-        window.location.href = '/404';
+        setVerified(response.data.verified);
       })
+      .catch((err) => {
+        window.location.href = "/404";
+      });
     window.addEventListener("scroll", handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      <ProfileHead />
+      <ProfileHead userName={userName} />
       <Header />
       <UserProfile
         userAvatar={userAvatar}
