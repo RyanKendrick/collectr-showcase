@@ -39,6 +39,10 @@ const CategoriesPage: NextPage = () => {
   let resultsLimit = 36;
 
   const getData = () => {
+    const close: any = document.getElementById("dropdown-content");
+    setROffset(0)
+    setIsOpen(false)
+    close.className = "display-none";
     axios
       .get(
         `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${rOffset}&limit=${resultsLimit}`
@@ -122,6 +126,7 @@ const CategoriesPage: NextPage = () => {
             Categories ▼
           </button>
           <div id="dropdown-content" className="dropdown-content">
+               <button className="dropdown-option" value='all' onClick={getData}>All</button>
             {Array.from(new Set(categoriesList)).map((i: any) => (
               <button
                 className="dropdown-option"
