@@ -7,6 +7,7 @@ import Collection from "../components/Collection";
 import Modal from "../components/Modal";
 import CircularProgress from "@mui/material/CircularProgress";
 import ProfileHead from "../components/Head";
+import Router from "next/router";
 
 const Profile: NextPage = () => {
   type productList = {
@@ -95,7 +96,7 @@ const Profile: NextPage = () => {
         setTotalSealed(response.data.total_sealed);
         setTotalGraded(response.data.total_graded);
         setProductList(response.data.products);
-      });
+      })
     window.addEventListener("scroll", handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
