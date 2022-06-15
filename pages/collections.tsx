@@ -38,14 +38,14 @@ const CategoriesPage: NextPage = () => {
   // let resultsOffset = 0
   let resultsLimit = 36;
 
-  const getData = () => {
+  const getData = async () => {
     const close: any = document.getElementById("dropdown-content");
     setROffset(0)
     setIsOpen(false)
     close.className = "display-none";
-    axios
+    await axios
       .get(
-        `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${rOffset}&limit=${resultsLimit}`
+        `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${0}&limit=${resultsLimit}`
       )
       .then((showcases) => {
         setResults(showcases.data.data);
@@ -64,7 +64,7 @@ const CategoriesPage: NextPage = () => {
     setCategory(e.target.value);
     await axios
       .get(
-        `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${e.target.value}&offset=${rOffset}&limit=${resultsLimit}`
+        `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${e.target.value}&offset=${0}&limit=${resultsLimit}`
       )
       .then((response) => {
         // console.log("response.data", response.data.data);
@@ -72,8 +72,8 @@ const CategoriesPage: NextPage = () => {
       });
   };
 
-  const setCategories = () => {
-    axios
+  const setCategories = async () => {
+    await axios
       .get(
         `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/categories`
       )
@@ -99,9 +99,9 @@ const CategoriesPage: NextPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const loadMore = () => {
+  const loadMore = async () => {
     setROffset(rOffset + 36);
-    axios
+    await axios
       .get(
         `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${category}&offset=${rOffset}&limit=${resultsLimit}`
       )
