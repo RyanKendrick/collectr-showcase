@@ -54,6 +54,25 @@ const CategoriesPage: NextPage = () => {
       });
   };
 
+  const getAllData = async () => {
+    setCategory("")
+    console.log('category after all', category)
+    const close: any = document.getElementById("dropdown-content");
+    setROffset(0)
+    setIsOpen(false)
+    close.className = "display-none";
+    await axios
+      .get(
+        `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=${0}&limit=${resultsLimit}`
+      )
+      .then((showcases) => {
+        setResults(showcases.data.data);
+        setCategories();
+        setROffset(rOffset + 36);
+      });
+      console.log('category after all', category)
+  };
+
   const getCategoryData = async (e: any) => {
     setROffset(0)
     const close: any = document.getElementById("dropdown-content");
@@ -126,7 +145,7 @@ const CategoriesPage: NextPage = () => {
             Categories ▼
           </button>
           <div id="dropdown-content" className="dropdown-content">
-               <button className="dropdown-option" value='all' onClick={getData}>All</button>
+               <button className="dropdown-option" value='all' onClick={getAllData}>All</button>
             {Array.from(new Set(categoriesList)).map((i: any) => (
               <button
                 className="dropdown-option"
