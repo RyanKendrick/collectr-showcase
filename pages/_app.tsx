@@ -11,9 +11,16 @@ import "../styles/home/HeroBanner.scss";
 import '../styles/home/Showcases.scss'
 import '../styles/home/Categories.scss'
 import '../styles/showcases-page/Showcases-Page.scss'
+import ReactGA from 'react-ga';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  ReactGA.initialize(`${'G-TN54HPHYN1'}`);
+    ReactGA.pageview(window.location.pathname + window.location.search);
   return <Component {...pageProps} />;
 }
 
 export default MyApp;
+
+
+
+// https://www.googletagmanager.com/gtag/js?id=G-TN54HPHYN1
