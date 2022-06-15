@@ -95,6 +95,8 @@ const Profile: NextPage = () => {
         setTotalSealed(response.data.total_sealed);
         setTotalGraded(response.data.total_graded);
         setProductList(response.data.products);
+      }).catch(err => {
+        window.location.href = '/404';
       })
     window.addEventListener("scroll", handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
