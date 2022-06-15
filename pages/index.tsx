@@ -1,56 +1,55 @@
-import { NextPage } from 'next'
-import React, { useEffect, useState } from 'react'
-import Header from '../components/homepage/Header'
-import Footer from '../components/homepage/Footer'
-import HtmlHead from '../components/homepage/HtmlHead'
-import HeroBanner from '../components/homepage/HeroBanner'
-import Showcases from '../components/homepage/Showcases'
-import Categories from '../components/homepage/Categories'
-import axios from 'axios'
+import { NextPage } from "next";
+import React, { useEffect, useState } from "react";
+import Header from "../components/homepage/Header";
+import Footer from "../components/homepage/Footer";
+import HtmlHead from "../components/homepage/HtmlHead";
+import HeroBanner from "../components/homepage/HeroBanner";
+import Showcases from "../components/homepage/Showcases";
+import Categories from "../components/homepage/Categories";
+import axios from "axios";
 
 const Home: NextPage = () => {
-
-  const [bannerImages, setBannerImages] = useState([])
-  const [showcases, setShowcases] = useState([])
-  const [categories, setCategories] = useState([])
-
+  const [bannerImages, setBannerImages] = useState([]);
+  const [showcases, setShowcases] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/hero-banner')
+    axios
+      .get(
+        "https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/hero-banner"
+      )
       .then((banners) => {
-        setBannerImages(banners.data.data)
-      })
-    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=0&limit=4')
+        setBannerImages(banners.data.data);
+      });
+    axios
+      .get(
+        "https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?offset=0&limit=4"
+      )
       .then((showcases) => {
-        setShowcases(showcases.data.data)
-      })
-    axios.get('https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/categories')
-    .then((categories) => {
-      setCategories(categories.data.data)
-    })
-  }, [])
+        setShowcases(showcases.data.data);
+      });
+    axios
+      .get(
+        "https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/categories"
+      )
+      .then((categories) => {
+        setCategories(categories.data.data);
+      });
+  }, []);
 
   return (
     <>
-      
-        <HtmlHead />
-        <Header />
-        <HeroBanner 
-          images={bannerImages}  
-        />
-        <Showcases 
-          showcases={showcases}
-        />
-        <Categories 
-          categories={categories}
-        />
-        <Footer />
-   
+      <HtmlHead />
+      <Header />
+      <HeroBanner images={bannerImages} />
+      <Showcases showcases={showcases} />
+      <Categories categories={categories} />
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
 
 // https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase - get all showcases, accepts query params: filters, offset and limit
 
