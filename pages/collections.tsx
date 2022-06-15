@@ -32,6 +32,7 @@ const CategoriesPage: NextPage = () => {
   );
   const [categoriesList, setCategoriesList] = useState<categoriesList[]>([]);
   const [rOffset, setROffset] = useState(0);
+  const [isOpen, setIsOpen] = useState(false)
   // let resultsOffset = 0
   let resultsLimit = 28;
 
@@ -48,6 +49,10 @@ const CategoriesPage: NextPage = () => {
   };
 
     const getCategoryData = async (e: any) => {
+        const close: any = document.getElementById('dropdown-content')
+        close.className = 'display-none'
+        setIsOpen(false)
+        document.getElementById('dropdown-content')
         console.log('etv', e.target.value)
         setCategory(e.target.value)
         await axios.get(`https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase?filters=${e.target.value}&offset=${rOffset}&limit=${resultsLimit}`)
@@ -62,6 +67,23 @@ const CategoriesPage: NextPage = () => {
         .then((response) => {
             setCategoriesList(response.data.data)
         })
+    }
+
+    const openDropdown = () => {
+        
+        
+        if (isOpen === false) {
+            const open: any = document.getElementById('dropdown-content')
+            setIsOpen(true)
+            open.className = 'show-dropdown'
+        } else {
+            const close: any = document.getElementById('dropdown-content')
+            close.className = 'display-none'
+            setIsOpen(false)
+        }
+        
+
+    
     }
 
     useEffect(() => {
@@ -83,19 +105,18 @@ const CategoriesPage: NextPage = () => {
         <HtmlHead /> 
         <Head />       
         <Header />
+
         <div className='category-select'>
             <div className="dropdown">
-                <button className="dropbtn">Categories ▼</button>
-                <div className="dropdown-content">
+                <button onClick={openDropdown} className="dropbtn">Categories ▼</button>
+                <div id='dropdown-content' className="dropdown-content">
                         {Array.from(new Set(categoriesList)).map((i: any) => (
                             <button className='dropdown-option' key={i.category_id} onClick={getCategoryData} value={i.category_id}>{i.category_name}</button>
                         ))}
-                    {/* <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a> */}
                 </div>
             </div>
         </div>
+        
         {/* <div className="category-select">
             <select onChange={getCategoryData} name="categories">
                 <option className='options-placeholder' value="default">Categories</option>
@@ -104,6 +125,7 @@ const CategoriesPage: NextPage = () => {
                 ))}
             </select>
         </div> */}
+        
         <div className="showcases-page-container">
             {category === '' && (
                 results.map((item: any) => (
