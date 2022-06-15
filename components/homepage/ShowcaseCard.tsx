@@ -12,9 +12,10 @@ interface ShowcaseCardProps {
     categories: any;
     collectionValue: any;
     refId: any;
+    verified: boolean;
 }
 
-const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, avatar, username, categories, collectionValue, refId }) => {
+const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, avatar, username, categories, collectionValue, refId, verified }) => {
     let dollars = new Intl.NumberFormat(`en-US`, {
         currency: `USD`,
         style: "currency",
@@ -72,6 +73,15 @@ const ShowcaseCard: FunctionComponent<ShowcaseCardProps> = ({ img1, img2, img3, 
                                 className={'profile-avatar'}
                             />
                             <div className="profile-username">{username}</div>
+                            {verified === true && (
+                            <Image 
+                                src={'/correct.png'}
+                                alt={'user verified'}
+                                width={15}
+                                height={15}
+                            />
+                            )}
+                            
                         </div>
                         <div className="collection-categories">{categories.slice(0, 4).join(' · ')}</div>
                     </div>

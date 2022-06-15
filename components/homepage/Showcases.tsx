@@ -6,6 +6,7 @@ interface ShowcasesProps {
   showcases: any;
 }
 const Showcases: FunctionComponent<ShowcasesProps> = ({ showcases }) => {
+  console.log('showcases', showcases)
   return (
     <>
       <div className="showcases-title">
@@ -25,6 +26,7 @@ const Showcases: FunctionComponent<ShowcasesProps> = ({ showcases }) => {
               categories={item.categories}
               collectionValue={item.total_value}
               refId={item.reference_id}
+              verified={item.verified}
             />
           </>
         ))}

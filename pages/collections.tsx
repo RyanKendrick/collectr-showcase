@@ -164,6 +164,7 @@ const CategoriesPage: NextPage = () => {
                 categories={item.categories}
                 collectionValue={item.total_value}
                 refId={item.reference_id}
+                verified={item.verified}
               />
             </>
           ))}
@@ -180,6 +181,7 @@ const CategoriesPage: NextPage = () => {
                 categories={item.categories}
                 collectionValue={item.total_value}
                 refId={item.reference_id}
+                verified={item.verified}
               />
             </>
           ))}
