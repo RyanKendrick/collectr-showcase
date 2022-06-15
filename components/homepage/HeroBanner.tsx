@@ -32,15 +32,17 @@ const HeroBanner: FunctionComponent<HeroBannerProps> = ({ images }) => {
           {images.map((img: any) => (
             <>
               <SwiperSlide>
-                <Link href={`/profile?id=${img.link_url}`}>
-                  <Image
-                    src={img.image_url}
-                    alt={"banner"}
-                    width={2000}
-                    height={1000}
-                    className={"current-img"}
-                    objectFit={"contain"}
-                  />
+                <Link href={`/profile?id=${img.link_url}`} passHref>
+                  <a href="" target="_blank" rel="noopener noreferrer">
+                    <Image
+                      src={img.image_url}
+                      alt={"banner"}
+                      width={2000}
+                      height={1000}
+                      className={"current-img"}
+                      objectFit={"contain"}
+                    />
+                  </a>
                 </Link>
               </SwiperSlide>
             </>
