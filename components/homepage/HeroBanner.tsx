@@ -26,7 +26,7 @@ const HeroBanner: FunctionComponent<HeroBannerProps> = ({ images }) => {
           slidesPerView={1}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
-          autoplay={{ delay: 5000 }}
+          autoplay={{ delay: 2500 }}
           pagination={{ clickable: true }}
         >
           {images.map((img: any) => (
