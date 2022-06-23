@@ -11,11 +11,9 @@ import "../styles/home/HeroBanner.scss";
 import "../styles/home/Showcases.scss";
 import "../styles/home/Categories.scss";
 import "../styles/showcases-page/Showcases-Page.scss";
-import Script from 'next/script'
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  
-  
   return (
     <>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
@@ -32,6 +30,20 @@ function MyApp({ Component, pageProps }: AppProps) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
+      <Script
+        id="gtag-init-2"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_UA_ID}', {
               page_path: window.location.pathname,
             });
           `,
