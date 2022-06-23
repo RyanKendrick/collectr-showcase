@@ -56,17 +56,22 @@
                 .arrow-link {
                     margin-top: 2px;
                 }
+                &:hover {
+                    cursor: pointer;
+                    color: #BFBFBF !important;
+                    a {
+                        text-decoration-color: #BFBFBF;
+                    }
+                    
+                    .arrow-link {
+                        filter: brightness(70%);
+                    }
             }
-            &:hover {
-                cursor: pointer;
-                color: #BFBFBF;
-                .arrow-link {
-                    filter: brightness(70%);
-                }
+            
             }
             .hamburger-link {
-                height: 4em;
-                width: 4em;
+                height: 3.7em;
+                width: 3.7em;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
@@ -81,10 +86,10 @@
                     flex-direction: column;
                     justify-content: space-around;
                     align-items: center;
-                    height: 45%;
+                    height: 37%;
                     .hamburger {
                         height: .2em;
-                        width: 1.7em;
+                        width: 1.5em;
                         background-color: white;
                         border-radius: 2px;
                         transition: 
@@ -151,7 +156,7 @@
     .home-header {
         .header-content {
             .download-link {
-                width: 9.5em;
+                width: auto;
                 .hamburger-link {
                     display: none;
                 }
