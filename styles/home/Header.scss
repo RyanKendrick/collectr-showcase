@@ -141,6 +141,17 @@
         align-items: center;
         justify-content: center;
     }
+    .home-header {
+        .header-content {
+            .download-link {
+                .next-link {
+                    display: none;
+                }
+            }
+        }
+    }
+
+
 }
 
 @media screen and (max-width: 990px) {
