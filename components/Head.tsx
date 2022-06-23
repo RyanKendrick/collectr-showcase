@@ -1,10 +1,12 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import Head from "next/head";
 
 interface HeaderProps {
   userName: string;
+  categories: any;
 }
-const ProfileHead = ({ userName = "" }) => {
+
+const ProfileHead: FunctionComponent<HeaderProps> = ({ userName = "", categories }) => {
   return (
     <>
       <Head>
@@ -28,7 +30,7 @@ const ProfileHead = ({ userName = "" }) => {
           Collectr -{" "}
           {userName == ""
             ? "Browse different Collectors portfolios"
-            : `Check out ${userName}'s Portfolio!`}
+            : `${userName}'s ${categories} Collection Portfolio`}
         </title>
       </Head>
     </>

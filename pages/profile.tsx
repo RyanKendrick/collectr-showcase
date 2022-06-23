@@ -14,6 +14,10 @@ const Profile: NextPage = () => {
     image_url: any;
   };
 
+  type categories = {
+    catelog_category_name: any;
+  };
+
   const [userAvatar, setUserAvatar] = useState("");
   const [userName, setUserName] = useState("");
   const [portfolioValue, setPortfolioValue] = useState("");
@@ -25,6 +29,8 @@ const Profile: NextPage = () => {
   const [selectedImage, setSelectedImage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [verified, setVerified] = useState(false);
+  const [categories, setCategories] = useState<categories[]>([])
+  const newArray = Array.from(new Set(categories))
   let offset = 0;
   let limit = 52;
   let hittingApi = false;
@@ -88,6 +94,7 @@ const Profile: NextPage = () => {
         `https://djk9wkkysj.execute-api.us-east-1.amazonaws.com/data/showcase/${referenceId}?offset=${offset}&limit=${limit}`
       )
       .then((response) => {
+        console.log('profile data res', response.data)
         setUserAvatar(response.data.profile_photo);
         setUserName(response.data.user);
         let dollars = new Intl.NumberFormat(`en-US`, {
@@ -100,6 +107,10 @@ const Profile: NextPage = () => {
         setTotalGraded(response.data.total_graded);
         setProductList(response.data.products);
         setVerified(response.data.verified);
+        for (let i in response.data.products) {
+         setCategories((categories) => [...categories, response.data.products[i].catalog_category_name])
+        }
+  
       })
       .catch((err) => {
         window.location.href = "/404";
@@ -110,7 +121,9 @@ const Profile: NextPage = () => {
 
   return (
     <>
-      <ProfileHead userName={userName} />
+      <ProfileHead
+        categories={newArray.join(', ')} 
+        userName={userName} />
       <Header />
       <UserProfile
         userAvatar={userAvatar}

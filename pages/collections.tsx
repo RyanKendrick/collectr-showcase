@@ -6,7 +6,7 @@ import Header from "../components/homepage/Header";
 import Footer from "../components/homepage/Footer";
 import { useRouter } from "next/router";
 import HtmlHead from "../components/homepage/HtmlHead";
-import Head from "../components/Head";
+import ProfileHead from "../components/Head";
 
 const CategoriesPage: NextPage = () => {
   const router = useRouter();
@@ -136,7 +136,10 @@ const CategoriesPage: NextPage = () => {
   return (
     <>
       <HtmlHead />
-      <Head />
+      <ProfileHead 
+        userName=""
+        categories={categoriesList}
+      />
       <Header />
 
       <div className="category-select">
