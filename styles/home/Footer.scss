@@ -1,59 +1,83 @@
-.footer {
-    font-family: 'Lato', sans-serif;
-    background-color: rgb(25, 27, 53);;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.footer-container {
+    height: 25em;
+    background-color: #191b35;
     width: 100%;
-    .discord-link {
-        font-family: 'Lato', sans-serif;
-        height: 5em;
-        background-color: rgb(25, 27, 53);;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        a {
-            font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', 'sans-serif';
+    color: white;
+    font-size: 12px;
+    padding-top: 3em;
+    .footer-divider {
+        position: relative;
+        left: 0%;
+        top: 0%;
+        right: 0%;
+        bottom: auto;
+        width: 80%;
+        height: 1px;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: rgba(255, 255, 255, 0.7);
+        opacity: 0.15;
+    }
+    .footer-copyright {
+        width: 80%;
+        color: #BFBFBF;
+        margin-top: 2em;
+    }
+    .footer-content {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-bottom: 5em;
+        .footer-logo {
+            filter:  brightness(0) invert(1);
+            margin-top: 1em;
+            a {
+                margin-left: 1em;
+            }
+            &:hover {
+                cursor: pointer;
+            }
         }
-    
-    }
-    .footer-bottom {
-        font-family: 'Lato', sans-serif;
-        background-color: rgb(25, 27, 53);
-        color: white;
-        height: 15em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .social-icons {
-        display: flex;
-        flex-direction: row;
-        width: 6rem;
-        justify-content: space-between;
-        margin-bottom: 1em;
-    }
-    .footer-labels {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        .footer-title {
-            font-size: 14px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            font-weight: 400;
-        }
-        .copyright {
-            font-size: 12px;
+        .footer-links {
+            width: 15em;
+            line-height: 3em;
+            a {
+                margin-left: 0;
+                color: #BFBFBF;
+            }
         }
     }
 }
 
-.icon-bg {
-    height: 30px;
-    width: 30px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
+@media screen and (max-width: 900px) {
+    .footer-container {
+        height: 35em;
+        .footer-content {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .footer-links {
+                width: 15em;
+                line-height: 3em;
+                text-align: center;
+                a {
+                    margin: 0;
+                }
+            }
+            .footer-logo {
+                a {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
 }
+
