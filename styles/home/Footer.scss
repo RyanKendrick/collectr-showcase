@@ -38,10 +38,11 @@
         .footer-logo {
             filter: brightness(0) invert(1);
             margin-top: 1em;
-            width: 15em;
+            width: 14em;
             margin-right: 10em;
             a {
                 margin-left: 1em;
+                text-align: center;
             }
             &:hover {
                 cursor: pointer;
@@ -75,6 +76,13 @@
                 }
             }
             .footer-logo {
+                filter: brightness(0) invert(1);
+                margin-right: 0;
+                margin-top: 0;
+                width: 80%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 a {
                     margin-left: 0;
                 }

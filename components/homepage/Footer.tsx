@@ -7,17 +7,19 @@ const Footer: FunctionComponent = () => {
     <>
       <div className="footer-container">
         <div className="footer-content">
-          <div className="footer-logo">
-            <a href="https://www.getcollectr.com">
-              <Image
+          
+            <div className="footer-logo">
+              {/* <a href="https://www.getcollectr.com"> */}
+                <Image
                   src={'https://www.getcollectr.com/marketing-website/images/collectr_logo-removebg---copy-p-500.png'}
                   width={200}
                   height={45}
                   alt={'collectr-icon'}
                   objectFit="contain"
-              />
-            </a>
-          </div>
+                />
+              {/* </a> */}
+            </div>
+       
           <div className="footer-links">
             <span>Contact Us</span><br/>
             <a href="mailto:contact@getcollectr.com">contact@getcollectr.com</a><br/>
