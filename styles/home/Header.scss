@@ -1,16 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 .home-header {
-    font-family: 'Lato';
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     background-color: rgb(25, 27, 53);
     box-shadow: 4px -1px 9px #c3c3c3;
-    .home-logo {
-        margin: 2vh 2vw;
-        filter:  brightness(0) invert(1);
-        &:hover {
-            cursor: pointer;
+    z-index: 1;
+    .header-content {
+        width: 72em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .home-logo {
+            margin: 2vh 2vw;
+            filter:  brightness(0) invert(1);
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .nav-links {
+            color: #BFBFBF;
+            width: 25em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            letter-spacing: .02em;
+            a {
+                &:hover {
+                    cursor: pointer;
+                    color: white;
+                }
+            }
+        }
+        .download-link {
+            color: white;
+            font-size: 12px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 14em;
+            justify-content: space-between;
+            text-decoration: underline;
+            margin-right: 3em;
+            .next-link {
+                display: flex;
+                flex-direction: row;
+                width: 9.5em;
+                justify-content: space-between;
+                .arrow-link {
+                    margin-top: 2px;
+                }
+            }
+            &:hover {
+                cursor: pointer;
+                color: #BFBFBF;
+                .arrow-link {
+                    filter: brightness(70%);
+                }
+            }
+            .hamburger-link {
+                height: 4em;
+                width: 4em;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 100%;
+                transition: 
+                    background-color 200ms ease-in-out,
+                    box-shadow 200ms ease-in-out;
+                .hamburger-container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: center;
+                    height: 45%;
+                    .hamburger {
+                        height: .2em;
+                        width: 1.7em;
+                        background-color: white;
+                        border-radius: 2px;
+                        transition: 
+                            background-color 200ms ease-in-out,
+                            box-shadow 200ms ease-in-out;
+                    }
+                }
+
+                &:hover {
+                    background-color: white;
+                    .hamburger {
+                        background-color: rgb(25, 27, 53);
+                    }
+                }
+            }
         }
     }
+}
+
+.dropdown-links {
+    height: 15em;
+    width: 15em;
+    position: absolute;
+    z-index: 100000;
+    background-color: white;
+    margin-top: 5em;
+    width: 90%;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2em 0;
+    border-radius: 0 0 15px 15px;
+    a {
+        margin-left: 2em;
+    }
+}
+
+.display-none {
+    display: none;
 }
 
 @media screen and (max-width: 550px) {
@@ -18,5 +133,29 @@
         font-family: 'Lato';
         align-items: center;
         justify-content: center;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .home-header {
+        font-family: 'Montserrat', 'sans-serif';
+        .header-content {
+            .nav-links {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 990px) {
+    .home-header {
+        .header-content {
+            .download-link {
+                width: 9.5em;
+                .hamburger-link {
+                    display: none;
+                }
+            }
+        }
     }
 }
