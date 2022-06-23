@@ -32,6 +32,7 @@
             justify-content: space-around;
             letter-spacing: .02em;
             a {
+                font-size: 14px;
                 &:hover {
                     cursor: pointer;
                     color: white;
@@ -40,7 +41,7 @@
         }
         .download-link {
             color: white;
-            font-size: 12px;
+            font-size: 14px;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -51,7 +52,7 @@
             .next-link {
                 display: flex;
                 flex-direction: row;
-                width: 9.5em;
+                width: 9.2em;
                 justify-content: space-between;
                 .arrow-link {
                     margin-top: 2px;
@@ -59,7 +60,8 @@
                 &:hover {
                     cursor: pointer;
                     color: #BFBFBF !important;
-                    a {
+                    text-decoration-color: #BFBFBF;
+                    div {
                         text-decoration-color: #BFBFBF;
                     }
                     
