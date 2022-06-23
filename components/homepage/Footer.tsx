@@ -12,8 +12,9 @@ const Footer: FunctionComponent = () => {
               <Image
                   src={'https://www.getcollectr.com/marketing-website/images/collectr_logo-removebg---copy-p-500.png'}
                   width={200}
-                  height={40}
+                  height={45}
                   alt={'collectr-icon'}
+                  objectFit="contain"
               />
             </a>
           </div>
@@ -28,6 +29,7 @@ const Footer: FunctionComponent = () => {
             <a href="https://www.getcollectr.com/marketing-website/terms-conditions.html">Terms &amp; Conditions</a><br/>
             <a href="https://www.getcollectr.com/marketing-website/privacy-policy.html">Privacy Policy</a><br/>
           </div>
+          <div className="empty-div"></div>
         </div>
         <div className="footer-divider"></div>
         <div className="footer-copyright">

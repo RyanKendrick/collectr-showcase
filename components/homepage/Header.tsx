@@ -25,9 +25,10 @@ const Header: FunctionComponent = () => {
                   <Link href={'https://showcase.getcollectr.com/'}>
                     <Image
                         src={'https://www.getcollectr.com/marketing-website/images/collectr_logo-removebg---copy-p-500.png'}
-                        width={150}
-                        height={30}
+                        width={235}
+                        height={40}
                         alt={'collectr-icon'}
+                        objectFit='contain'
                     />
                   </Link>
               </div>
