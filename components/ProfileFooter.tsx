@@ -32,7 +32,7 @@ const ProfileFooter: FunctionComponent<ProfileFooterProps> = ({
                 <span>
                 {user} most valuable card is a {productOne.product_name}.&nbsp; 
                 {user} has a total of {totalItems} items in their collection,&nbsp; 
-                including {totalGradedCards} graded 
+                including {totalItems} raw cards, {totalGradedCards} graded 
                 cards, and {totalSealedProducts} sealed products.
                 </span>
             </div>

@@ -163,15 +163,6 @@ const CategoriesPage: NextPage = () => {
         </div>
       </div>
 
-      {/* <div className="category-select">
-            <select onChange={getCategoryData} name="categories">
-                <option className='options-placeholder' value="default">Categories</option>
-                {Array.from(new Set(categoriesList)).map((i: any) => (
-                    <option key={i.category_id} value={i.category_id}>{i.category_name}</option>
-                ))}
-            </select>
-        </div> */}
-
       <div className="showcases-page-container">
         {category === "" &&
           results.map((item: any) => (

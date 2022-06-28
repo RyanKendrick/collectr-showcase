@@ -128,14 +128,6 @@ const Profile: NextPage = () => {
         categories={newArray.join(', ')} 
         userName={userName} />
       <Header />
-      <ProfileFooter 
-        user={userName}
-        collectibles={newArray.join(', ')}
-        productOne={productOne}
-        totalItems={totalCards}
-        totalGradedCards={totalGraded}
-        totalSealedProducts={totalSealed}
-      />
       <UserProfile
         userAvatar={userAvatar}
         userName={userName}
@@ -151,6 +143,14 @@ const Profile: NextPage = () => {
       {selectedImage && (
         <Modal selectedImage={selectedImage} closeModal={closeModal} />
       )}
+      <ProfileFooter 
+        user={userName}
+        collectibles={newArray.join(', ')}
+        productOne={productOne}
+        totalItems={totalCards}
+        totalGradedCards={totalGraded}
+        totalSealedProducts={totalSealed}
+      />
     </>
   );
 };
