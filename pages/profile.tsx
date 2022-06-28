@@ -7,6 +7,7 @@ import Collection from "../components/Collection";
 import Modal from "../components/Modal";
 import CircularProgress from "@mui/material/CircularProgress";
 import ProfileHead from "../components/Head";
+import ProfileFooter from "../components/ProfileFooter";
 
 const Profile: NextPage = () => {
   type productList = {
@@ -30,6 +31,7 @@ const Profile: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [verified, setVerified] = useState(false);
   const [categories, setCategories] = useState<categories[]>([])
+  const [productOne, setProductOne] = useState("")
   const newArray = Array.from(new Set(categories))
   let offset = 0;
   let limit = 52;
@@ -106,6 +108,7 @@ const Profile: NextPage = () => {
         setTotalSealed(response.data.total_sealed);
         setTotalGraded(response.data.total_graded);
         setProductList(response.data.products);
+        setProductOne(response.data.products[0])
         setVerified(response.data.verified);
         for (let i in response.data.products) {
          setCategories((categories) => [...categories, response.data.products[i].catalog_category_name])
@@ -125,6 +128,14 @@ const Profile: NextPage = () => {
         categories={newArray.join(', ')} 
         userName={userName} />
       <Header />
+      <ProfileFooter 
+        user={userName}
+        collectibles={newArray.join(', ')}
+        productOne={productOne}
+        totalItems={totalCards}
+        totalGradedCards={totalGraded}
+        totalSealedProducts={totalSealed}
+      />
       <UserProfile
         userAvatar={userAvatar}
         userName={userName}

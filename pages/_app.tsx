@@ -11,6 +11,7 @@ import "../styles/home/HeroBanner.scss";
 import "../styles/home/Showcases.scss";
 import "../styles/home/Categories.scss";
 import "../styles/showcases-page/Showcases-Page.scss";
+import "../styles/ProfileFooter.scss"
 import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
