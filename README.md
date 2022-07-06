@@ -15,11 +15,11 @@ Showcase.collectr.com showcases the collections of *[Collectr's](https://www.get
 <img style="width: 10em" src='./server/images/app-store-1.png'/>
 </a>
 <hr/>
-<img src='./server/images/collectr-ss-1.PNG'/>
-<img src='./server/images/collectr-ss-5.PNG'/>
+<img src='./public/readme/collectr-ss-1.PNG'/>
+<img src='./public/readme/collectr-ss-5.PNG'/>
 <span>
-    <img src='./server/images/collectr-ss-4.PNG'/>
-    <img src='./server/images/collectr-ss-2.PNG'/>
+    <img src='./public/readme/collectr-ss-4.PNG'/>
+    <img src='./public/readme/collectr-ss-2.PNG'/>
 </span>
-<img src='./server/images/collectr-ss-6.PNG'/>
-<img src='./server/images/collectr-ss-7.PNG'/>
+<img src='./public/readme/collectr-ss-6.PNG'/>
+<img src='./public/readme/collectr-ss-7.PNG'/>
