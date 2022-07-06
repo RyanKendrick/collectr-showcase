@@ -15,7 +15,7 @@ Showcase.collectr.com showcases the collections of *[Collectr's](https://www.get
 <img style="width: 10em" src='./public/readme/app-store-1.png'/>
 </a>
 <hr/>
-<img src='https://github.com/RyanKendrick/collectr-showcase/blob/main/public/readme/app-store-1.png?raw=true'/>
+<img src='https://github.com/RyanKendrick/collectr-showcase/blob/main/public/readme/collectr-ss-1.PNG?raw=true'/>
 <img src='https://github.com/RyanKendrick/collectr-showcase/blob/main/public/readme/collectr-ss-5.PNG?raw=true'/>
 <span>
     <img src='https://github.com/RyanKendrick/collectr-showcase/blob/main/public/readme/collectr-ss-4.PNG?raw=true'/>
