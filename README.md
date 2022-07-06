@@ -9,10 +9,10 @@ Showcase.collectr.com showcases the collections of *[Collectr's](https://www.get
 
 
 <a href='https://play.google.com/store/apps/details?id=com.collectrinc.collectr'>
-<img style="width: 10em" src='./server/images/google-store-1.png'/>
+<img style="width: 10em" src='./public/readme/google-store-1.png'/>
 </a></br>
 <a href='https://apps.apple.com/us/app/collectr-tcg-collector-app/id1603892248'>
-<img style="width: 10em" src='./server/images/app-store-1.png'/>
+<img style="width: 10em" src='./public/readme/app-store-1.png'/>
 </a>
 <hr/>
 <img src='./public/readme/collectr-ss-1.PNG'/>
